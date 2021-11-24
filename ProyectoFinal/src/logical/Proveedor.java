@@ -45,4 +45,5 @@ public void setCuentapagar(String cuentapagar) {
 	this.cuentapagar = cuentapagar;
 }
 
+
 }
