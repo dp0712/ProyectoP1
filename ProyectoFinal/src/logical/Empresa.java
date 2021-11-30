@@ -4,11 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-import logico.Cliente;
-import logico.Factura;
-import logico.Movimientos;
-import logico.Persona;
-import logico.Prodacom;
 
 
 public class Empresa implements Serializable{
@@ -20,6 +15,7 @@ public class Empresa implements Serializable{
 	private ArrayList<Combos>miscombos;
 	private ArrayList<Facturacion>misfacturas;
 	private ArrayList<Cliente>misclientes;
+	private ArrayList<Componente>miscomponentes;
 	private int codifact=1;
 	public Empresa(ArrayList<Combos> miscombos, ArrayList<Facturacion> misfacturas, ArrayList<Cliente> misclientes) {
 		super();
@@ -49,7 +45,7 @@ public class Empresa implements Serializable{
 	public static Empresa empresa = null;
 	public static Empresa getInstance() {
 		if(empresa == null) {
-			empresa = new Empresa();
+			empresa = new Empresa(); //no entiendo por que da error
 		}
 		return empresa;
 	}
@@ -66,6 +62,7 @@ public class Empresa implements Serializable{
 		}
 		return combo;
 	}
+	/*
 	public void retornarelcombo(Combos c) {
 		for(Componente a : c.getMiscomponentes() ) {
 			a.setCantdispo(a.getCantdispo()+1);
@@ -86,6 +83,7 @@ public class Empresa implements Serializable{
 			}
 			
 		}
+		*/
 		
 	}
 	public int getCodifact() {
@@ -120,25 +118,21 @@ public class Empresa implements Serializable{
 		
 		return c.getCredito()-res;
 	}
-	/*
-	public void pagarfactura(Cliente aux) {
-		double total=0;
-		ArrayList<String>s=new ArrayList<String>();
-		for(Facturacion f : misfacturas) {
-			if(f.getCliente().equals(aux) && f.isEstado()) {
-				s.add(f.getCod());
-				f.setEstado(false);
-				total+=f.calcualBenf();
+	public Componente buscarelomponente(String Numserie) {
+		Componente componente = null;
+		int i = 0;
+		boolean encontrado=false;
+		while (i<miscomponentes.size() && !encontrado) {
+			if(miscomponentes.get(i).getNumserie(){
+				encontrado = true;
+				componente = miscomponentes.get(i);
 			}
+			i++;
 		}
-		setBalance(getBalance()+total);
-		Movimientos m = new Movimientos("Pago deuda cliente: "+aux.getNombre(), "D-"+getCod_mov(), "Facturas: "+s, new Date(), total, getUser().getNombre(), Prodacom.getInstance().balance);
-		movimientos.add(m);
-		setCod_mov(getCod_mov()+1);
-		
+		return componente;
 	}
 	
-*/
+
 
 
 
