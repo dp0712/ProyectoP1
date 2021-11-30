@@ -2,6 +2,13 @@ package logical;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
+
+import logico.Cliente;
+import logico.Factura;
+import logico.Movimientos;
+import logico.Persona;
+import logico.Prodacom;
 
 
 public class Empresa implements Serializable{
@@ -87,6 +94,52 @@ public class Empresa implements Serializable{
 	public void setCodifact(int codifact) {
 		this.codifact = codifact;
 	}
+	public void insertarCliente(Cliente Cliente) {
+		this.misclientes.add(Cliente);
+	}
+	public Cliente buscarcliente(String cedula) {
+		Cliente cliente = null;
+		int i = 0;
+		boolean encontrado = false;
+		while (i<misclientes.size() && !encontrado) {
+			if(misclientes.get(i).getCedula().equalsIgnoreCase(cedula) && misclientes.get(i) instanceof Cliente) {
+				encontrado = true;
+				cliente =(Cliente) misclientes.get(i);
+			}
+			i++;
+		}
+		return cliente;
+	}
+	public float creditodelcliente(Cliente c) {
+		float res = 0;
+		for(Facturacion f : misfacturas) {
+			if(f.getCliente().cedula.equalsIgnoreCase(c.cedula) && f.isEstado()) {
+				res+=f.getTotal();
+			}
+		}
+		
+		return c.getCredito()-res;
+	}
+	/*
+	public void pagarfactura(Cliente aux) {
+		double total=0;
+		ArrayList<String>s=new ArrayList<String>();
+		for(Facturacion f : misfacturas) {
+			if(f.getCliente().equals(aux) && f.isEstado()) {
+				s.add(f.getCod());
+				f.setEstado(false);
+				total+=f.calcualBenf();
+			}
+		}
+		setBalance(getBalance()+total);
+		Movimientos m = new Movimientos("Pago deuda cliente: "+aux.getNombre(), "D-"+getCod_mov(), "Facturas: "+s, new Date(), total, getUser().getNombre(), Prodacom.getInstance().balance);
+		movimientos.add(m);
+		setCod_mov(getCod_mov()+1);
+		
+	}
+	
+*/
+
 
 
 }
