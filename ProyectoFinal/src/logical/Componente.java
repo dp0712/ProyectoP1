@@ -36,4 +36,11 @@ public int getCantmin() {
 public void setCantmin(int cantmin) {
 	this.cantmin = cantmin;
 }
+public static Componente componente = null;
+public static Componente getInstance() {
+	if(componente == null) {
+		componente = new Componente(); //no entiendo por que da error
+	}
+	return componente;
+}
 }
