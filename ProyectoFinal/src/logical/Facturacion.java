@@ -2,6 +2,7 @@ package logical;
 
 import java.util.ArrayList;
 
+
 public class Facturacion {
 	private static final long serialVersionUID = -4585348282443559002L;
 	private String codigo;
@@ -26,6 +27,17 @@ public class Facturacion {
 		this.pagado = pagado;
 		this.filas = new Object [100][5];
 	}
-
+	public void agregarfila(int pos,Object[] o) {
+		for(int i = 0; i<5;i++) {
+			filas[pos][i]=o[i];
+		}
+		
+	}
+	public void agregarcombo(Combos c) {
+		miscombos.add(c);
+	}
+	public void agregarcomponente(Componente c) {
+		miscomponentes.add(c);
+	}
 
 }
