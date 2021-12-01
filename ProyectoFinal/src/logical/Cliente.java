@@ -9,8 +9,8 @@ private String rnc;
 private String cedula;
 private float LimitCredi;
 private float cuentascobra;
-public Cliente(String nombre, String direccion, String telefono, String rnc, String cedula, float limitCredi,
-		float cuentascobra) {
+public Cliente(String nombre, String direccion, String telefono, String rnc, float limitCredi,
+		float cuentascobra, String cedula) {
 	super();
 	this.nombre = nombre;
 	this.direccion = direccion;

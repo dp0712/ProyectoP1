@@ -839,7 +839,7 @@ public class AgregarComponente extends JDialog {
 						}else {
 							JOptionPane.showMessageDialog(null, "Recuerde que debe de llenar los apartados de la seccion Motherboard.\nTambien debe verificar que la tabla tenga al menos 1 conexión agregada.", "Información", JOptionPane.INFORMATION_MESSAGE);
 						}
-							//Prodacom.getInstance().insertarComponente(aux);
+							//Empresa.getInstance().insertarComponente(aux);
 						}
 						
 						LIMPIAR();
