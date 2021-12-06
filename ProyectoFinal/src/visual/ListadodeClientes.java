@@ -218,7 +218,7 @@ public class ListadodeClientes extends JDialog {
 						public void actionPerformed(ActionEvent e) {
 							int opcion = JOptionPane.showConfirmDialog(null, "Seguro que desea realizar el pago total de sus facturas");
 							if(opcion==JOptionPane.OK_OPTION) {
-								Empresa.getInstance().PagarDeudaCliente(aux);
+							
 								JOptionPane.showMessageDialog(null, "Pago realizado");
 								CargarTabla();
 							}else {
@@ -277,7 +277,6 @@ public class ListadodeClientes extends JDialog {
 			fila[1]=c.getNombre();
 			fila[2]=c.getTelefono();
 			fila[3]=c.getDireccion();
-			fila[4]=c.getCredito()-Empresa.getInstance().CreditCliente(c);
 			modelo.addRow(fila);
 		}
 		
