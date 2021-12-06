@@ -97,6 +97,7 @@ public class Facturar extends JDialog {
 
 	
 	public Facturar(Facturacion q) {
+		setTitle("Factura");
 		this.auxiliar=q;
 		
 		this.addWindowListener(new WindowListener() {
@@ -219,7 +220,7 @@ public class Facturar extends JDialog {
 			lblCreditoDisponible.setBounds(423, 115, 272, 31);
 			panel_2.add(lblCreditoDisponible);
 			
-			lblCodigo = new JLabel("Factura #"+Empresa.getInstance().getInstance().getCodifact());
+			lblCodigo = new JLabel("Factura #"+Empresa.getInstance().getCodifact());
 			lblCodigo.setBackground(UIManager.getColor("Button.focus"));
 			lblCodigo.setForeground(Color.BLACK);
 			lblCodigo.setFont(new java.awt.Font("Verdana", java.awt.Font.BOLD, 22));
@@ -443,7 +444,6 @@ public class Facturar extends JDialog {
 								try {
 									GenerarFactura(f);
 								} catch (IOException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}
 								Empresa.getInstance().agregarfactura(f);
