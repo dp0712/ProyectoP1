@@ -79,7 +79,7 @@ public class RegisCliente extends JDialog {
 			}
 			
 			txtNombre = new JTextField();
-			txtNombre.setForeground(new Color(0, 0, 255));
+			txtNombre.setForeground(Color.WHITE);
 			txtNombre.setBackground(Color.DARK_GRAY);
 			txtNombre.setBounds(111, 41, 333, 27);
 			panel.add(txtNombre);
@@ -125,7 +125,7 @@ public class RegisCliente extends JDialog {
 					}
 				}
 			});
-			txtTelefono.setForeground(Color.DARK_GRAY);
+			txtTelefono.setForeground(Color.WHITE);
 			txtTelefono.setBackground(Color.DARK_GRAY);
 			txtTelefono.setColumns(10);
 			txtTelefono.setBounds(111, 161, 333, 27);
