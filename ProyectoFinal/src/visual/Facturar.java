@@ -597,11 +597,10 @@ private void GenerarFactura(Facturacion f) throws IOException {
 			bw.newLine();
 			bw.write(String.format("%-50s %-50s",("Cliente: "+f.getCliente().getNombre()),f.getCodigo()));
 			bw.newLine();
-			bw.write(String.format("%-50s %-50s",("Cedula: "+f.getCliente().getCedula()),"Fecha: "+inicio.get(Calendar
-					.DAY_OF_MONTH)+"/"+(1+(inicio.get(Calendar.MONTH)))+"/"+inicio.get(Calendar.YEAR)));
+			bw.write(String.format("%-50s",("Cedula: "+f.getCliente().getCedula())));
 			bw.newLine();
 			
-			bw.write(String.format("%-50s %-50s",("Telefono: "+f.getCliente().getTelefono()),"Vendedor: "+f.getVendedor().getNombre()));
+			bw.write(String.format("%-50s",("Telefono: "+f.getCliente().getTelefono())));
 			bw.newLine();
 			bw.newLine();
 			bw.write("--------------------------------------------------------------------------------------");
@@ -631,12 +630,12 @@ private void GenerarFactura(Facturacion f) throws IOException {
 			bw.newLine();
 			bw.write("--------------------------------------------------------------------------------------");
 			bw.newLine();
-			bw.write("Gracias por preferirnos, recuerde que no aceptamos devoluciones");
+			bw.write("Gracias por su compra");
 			bw.newLine();
 			bw.close();
 			fos.close();
 }catch (IOException e) {
-	JOptionPane.showMessageDialog(null, "Ha ocurrido un error por favor compruebe que la carpeta -facturas- se encuentra creada en la ruta del programa");
+	JOptionPane.showMessageDialog(null, "No se ha encontrado la carpeta de facturas");
 }
 		
 	}
