@@ -1,18 +1,24 @@
 package logical;
 
+import java.util.ArrayList;
+
+
+
 public class Proveedor {
 private String nombre;
 private String rnc;
 private String telefono;
 private String direccion;
-private String cuentapagar;
-public Proveedor(String nombre, String rnc, String telefono, String direccion, String cuentapagar) {
+private float cuentapagar;
+private ArrayList<Componente>miscomponentes;
+
+public Proveedor(String nombre, String rnc, String telefono, String direccion, float f) {
 	super();
 	this.nombre = nombre;
 	this.rnc = rnc;
 	this.telefono = telefono;
 	this.direccion = direccion;
-	this.cuentapagar = cuentapagar;
+	this.cuentapagar = f;
 }
 public String getNombre() {
 	return nombre;
@@ -38,12 +44,14 @@ public String getDireccion() {
 public void setDireccion(String direccion) {
 	this.direccion = direccion;
 }
-public String getCuentapagar() {
+public float getCuentapagar() {
 	return cuentapagar;
 }
-public void setCuentapagar(String cuentapagar) {
+public void setCuentapagar(float cuentapagar) {
 	this.cuentapagar = cuentapagar;
 }
-
+public void insertarcomponentes(Componente c) {
+	miscomponentes.add(c);
+}
 
 }
