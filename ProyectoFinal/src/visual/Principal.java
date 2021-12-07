@@ -36,6 +36,8 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import javax.swing.event.MenuListener;
+import javax.swing.event.MenuEvent;
 
 public class Principal extends JFrame {
 
@@ -120,7 +122,6 @@ public class Principal extends JFrame {
 			});
 		
 		setTitle("");
-		
 		setBackground(UIManager.getColor("Button.focus"));
 		setForeground(UIManager.getColor("Button.focus"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -164,6 +165,7 @@ public class Principal extends JFrame {
 		mnFactura.add(mntmNewMenuItem_2);
 		
 		mnComponente = new JMenu("Componentes");
+
 		mnComponente.setFont(new Font("Segoe UI", Font.PLAIN, 24));
 		mnComponente.setBackground(UIManager.getColor("Button.focus"));
 		mnComponente.setForeground(Color.BLACK);
@@ -223,7 +225,7 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_5.setForeground(Color.DARK_GRAY);
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegisCombo aux = new RegisCombo();
+				AgregarCombo aux = new AgregarCombo();
 				aux.setVisible(true);
 			}
 		});
@@ -288,10 +290,10 @@ public class Principal extends JFrame {
 	
 	private void CargarMenu() {
 		if(Empresa.getInstance().getMisclientes() != null ) {
-			mnComponente.setEnabled(false);
-			mnCliente.setEnabled(false);
-			mnCombos.setEnabled(false);
-			mnProveedor.setEnabled(false);
+			mnComponente.setEnabled(true);
+			mnCliente.setEnabled(true);
+			mnCombos.setEnabled(true);
+			mnProveedor.setEnabled(true);
 			mnFactura.setEnabled(true);
 
 		}
