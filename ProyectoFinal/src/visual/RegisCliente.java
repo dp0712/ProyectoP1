@@ -34,13 +34,7 @@ public class RegisCliente extends JDialog {
 	private JTextField txtTelefono;
 	private JTextField txtDireccion;
 	private JTextField txtCedula;
-	private JLabel lblCredito;
-	private JTextField txtCredito;
-	private JLabel lblDias;
-	private JSpinner spnDias;
 	private JButton btnSeleccionar;
-	private JRadioButton rdbtnSi;
-	private JRadioButton rdbtnNo;
 
 	/**
 	 * Launch the application.
@@ -143,76 +137,6 @@ public class RegisCliente extends JDialog {
 			txtDireccion.setColumns(10);
 			txtDireccion.setBounds(111, 220, 333, 27);
 			panel.add(txtDireccion);
-			
-			spnDias = new JSpinner();
-			spnDias.setForeground(new Color(0, 0, 255));
-			spnDias.setBackground(UIManager.getColor("Button.focus"));
-			spnDias.setModel(new SpinnerNumberModel(1, 1, 120, 1));
-			spnDias.setBounds(363, 354, 68, 27);
-			panel.add(spnDias);
-			
-			lblDias = new JLabel("Dias Para Pagar:");
-			lblDias.setBackground(UIManager.getColor("Button.focus"));
-			lblDias.setForeground(Color.BLACK);
-			lblDias.setBounds(266, 359, 89, 16);
-			panel.add(lblDias);
-			
-			lblCredito = new JLabel("Cantidad de Credito:");
-			lblCredito.setBackground(UIManager.getColor("Button.focus"));
-			lblCredito.setForeground(Color.BLACK);
-			lblCredito.setBounds(12, 357, 125, 16);
-			panel.add(lblCredito);
-			
-			txtCredito = new JTextField();
-			txtCredito.addKeyListener(new KeyAdapter() {
-				@Override
-				public void keyTyped(KeyEvent e) {
-					char carac = e.getKeyChar();
-					if(((carac<'0') || (carac>'9')) && ((carac!='.') && (carac!='\b'))) {
-						e.consume();
-					}
-				}
-			});
-			txtCredito.setBackground(Color.DARK_GRAY);
-			txtCredito.setForeground(Color.WHITE);
-			txtCredito.setBounds(147, 354, 109, 27);
-			panel.add(txtCredito);
-			txtCredito.setColumns(10);
-			
-			rdbtnSi = new JRadioButton("Si");
-			rdbtnSi.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-						rdbtnNo.setSelected(false);
-						lblCredito.setVisible(true);
-						txtCredito.setVisible(true);
-						spnDias.setVisible(true);
-						lblDias.setVisible(true);
-					
-				}
-			});
-			rdbtnSi.setBounds(165, 296, 56, 25);
-			panel.add(rdbtnSi);
-			
-			JLabel lblNewLabel = new JLabel("Desea tener Credito?\r\n");
-			lblNewLabel.setForeground(Color.BLACK);
-			lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
-			lblNewLabel.setBounds(12, 300, 272, 16);
-			panel.add(lblNewLabel);
-			
-			rdbtnNo = new JRadioButton("No");
-			rdbtnNo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					rdbtnSi.setSelected(false);
-					lblCredito.setVisible(false);
-					txtCredito.setVisible(false);
-					spnDias.setVisible(false);
-					lblDias.setVisible(false);
-					
-				}
-			});
-			rdbtnNo.setBounds(304, 296, 68, 25);
-			panel.add(rdbtnNo);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -240,16 +164,8 @@ public class RegisCliente extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						Cliente c = null;
-						if(rdbtnSi.isSelected()) {
-							c = new Cliente(txtNombre.getText(), txtCedula.getText(), txtTelefono.getText()
-									, txtDireccion.getText( ), Float.parseFloat(txtCredito.getText())
-									, Integer.parseInt(spnDias.getValue().toString()));
-						}else {
-							c = new Cliente(txtNombre.getText(), txtCedula.getText(), txtTelefono.getText()
-									, txtDireccion.getText(), 0.0f
-									, 0);
-							
-						}
+							c = new Cliente(txtNombre.getText(), txtCedula.getText(), txtTelefono.getText(), txtDireccion.getText(), 0.0, 0);
+			
 						Empresa.getInstance().insertarCliente(c);
 						Facturar.CargarCliente((Cliente)c);
 						JOptionPane.showMessageDialog(null, "Se ha registrado correctamente el cliente");
