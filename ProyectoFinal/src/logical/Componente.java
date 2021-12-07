@@ -36,6 +36,7 @@ public int getCantmin() {
 public void setCantmin(int cantmin) {
 	this.cantmin = cantmin;
 }
+/*
 public static Componente componente = null;
 public static Componente getInstance() {
 	if(componente == null) {
@@ -43,4 +44,10 @@ public static Componente getInstance() {
 	}
 	return componente;
 }
+*/
+public static Componente getInstance() {
+	// TODO Auto-generated method stub
+	return null;
 }
+}
+
