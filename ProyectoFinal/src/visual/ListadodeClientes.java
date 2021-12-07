@@ -108,7 +108,7 @@ public class ListadodeClientes extends JDialog {
 						}
 					});
 					btnBuscar.setBackground(UIManager.getColor("Button.focus"));
-					btnBuscar.setBounds(396, 4, 65, 32);
+					btnBuscar.setBounds(396, 4, 104, 32);
 					panel_1.add(btnBuscar);
 				}
 				{
