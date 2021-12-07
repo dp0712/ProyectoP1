@@ -76,6 +76,7 @@ public class ListadodeComponentes extends JDialog {
 	public ListadodeComponentes() {
 		setTitle("Listado de Componentes");
 
+		Combos aux = null;
 		this.cargar=aux;
 		this.mode=mode;
 		if(cargar==null) {
