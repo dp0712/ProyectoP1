@@ -82,8 +82,7 @@ public class ListadeProveedores extends JDialog {
 		{
 			JPanel panel = new JPanel();
 			panel.setForeground(UIManager.getColor("Button.focus"));
-			panel.setBackground(UIManager.getColor("Button.focus"));
-			panel.setBorder(new LineBorder(new Color(50, 205, 50)));
+			panel.setBackground(Color.DARK_GRAY);
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
 			{
@@ -123,14 +122,14 @@ public class ListadeProveedores extends JDialog {
 			}
 			
 			JLabel lblNewLabel = new JLabel("Filtro:");
-			lblNewLabel.setForeground(SystemColor.textHighlight);
-			lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
+			lblNewLabel.setForeground(Color.WHITE);
+			lblNewLabel.setBackground(Color.WHITE);
 			lblNewLabel.setBounds(10, 13, 56, 14);
 			panel.add(lblNewLabel);
 			
 			txtFiltro = new JTextField();
-			txtFiltro.setForeground(new Color(0, 0, 255));
-			txtFiltro.setBackground(UIManager.getColor("Button.focus"));
+			txtFiltro.setForeground(Color.BLACK);
+			txtFiltro.setBackground(Color.LIGHT_GRAY);
 			txtFiltro.addKeyListener(new KeyAdapter() {
 				@Override
 				public void keyPressed(KeyEvent arg0) {
@@ -146,15 +145,14 @@ public class ListadeProveedores extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBorder(new LineBorder(new Color(184, 134, 11)));
 			buttonPane.setForeground(UIManager.getColor("Button.focus"));
-			buttonPane.setBackground(UIManager.getColor("Button.focus"));
+			buttonPane.setBackground(Color.DARK_GRAY);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				informacionButton = new JButton("Informaci\u00F3n");
 				informacionButton.setBackground(UIManager.getColor("Button.focus"));
-				informacionButton.setForeground(new Color(0, 0, 255));
+				informacionButton.setForeground(Color.BLACK);
 				informacionButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
@@ -170,7 +168,7 @@ public class ListadeProveedores extends JDialog {
 				});
 				{
 					btnPagar = new JButton("Pagar Deuda");
-					btnPagar.setForeground(new Color(127, 255, 0));
+					btnPagar.setForeground(Color.BLACK);
 					btnPagar.setBackground(UIManager.getColor("Button.focus"));
 					btnPagar.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
@@ -191,7 +189,7 @@ public class ListadeProveedores extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancelar");
 				cancelButton.setBackground(UIManager.getColor("Button.focus"));
-				cancelButton.setForeground(new Color(128, 0, 0));
+				cancelButton.setForeground(Color.BLACK);
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
