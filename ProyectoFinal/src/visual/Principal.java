@@ -253,7 +253,7 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_7.setForeground(Color.DARK_GRAY);
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegisProveedores aux = new RegisProveedores();
+				RegisProveedor aux = new RegisProveedor();
 				aux.setVisible(true);
 			}
 		});
