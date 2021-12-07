@@ -50,16 +50,16 @@ public class AgregarComponente extends JDialog {
 	private JTextField txtNumSerie;
 	private JTextField txtModelo;
 	private JTextField txtMarca;
-	private JTextField txtConexion_MotherBoard;
-	private JTextField txtTipoRam_MotherBoard;
+	private JTextField txtConexion_TarjetaMadre;
+	private JTextField txtTipoRam_TarjetaMadre;
 	private JSpinner spnCantDispo;
 	private JSpinner spnCantMinima;
-	private JLabel lblConector_MotherBoard;
+	private JLabel lblConector_TarjetaMadre;
 	private JTable table;
 	private JTable table_1;
 	private JButton btnAgregar;
 	private JButton btnQuitar;
-	private JLabel lblTipoRam_MotherBoard;
+	private JLabel lblTipoRam_TarjetaMadre;
 	public static DefaultTableModel modelo;
 	public static DefaultTableModel modelo_1;
 	public static Object[] fila;
@@ -70,7 +70,7 @@ public class AgregarComponente extends JDialog {
 	private JButton okButton;
 	private JPanel panel_Disponibles;
 	private JPanel panel_Agregados;
-	private JPanel panel_MotherBoard;
+	private JPanel panel_TarjetaMadre;
 	private JLabel lblCantidadDeMemoria_MemoriaRam;
 	private JLabel lblTipoDeMemoria_MemoriaRam;
 	private JLabel lblMemoria_MemoriaRam;
@@ -92,7 +92,7 @@ public class AgregarComponente extends JDialog {
 	private JSpinner spnVelocidad_Microprocesadores;
 	private JComboBox cbxTipo_Microprocesadores;
 	private JPanel panel_MemoriaRam;
-	private JRadioButton rdbtnMotherboard;
+	private JRadioButton rdbtnTarjetaMadre;
 	private JRadioButton rdbtnMemoriaRam;
 	private JRadioButton rdbtnMicroprocesadores;
 	private JRadioButton rdbtnDisco;
@@ -133,10 +133,10 @@ public class AgregarComponente extends JDialog {
 		contentPanel.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNumSerie = new JLabel("Numero de Serie");
+		JLabel lblNumSerie = new JLabel("Num Serie");
 		lblNumSerie.setBackground(UIManager.getColor("Button.focus"));
 		lblNumSerie.setForeground(Color.WHITE);
-		lblNumSerie.setBounds(10, 25, 81, 14);
+		lblNumSerie.setBounds(10, 25, 91, 14);
 		panel.add(lblNumSerie);
 		
 		JLabel lblModelo = new JLabel("Modelo:");
@@ -152,9 +152,7 @@ public class AgregarComponente extends JDialog {
 		panel.add(lblMarca);
 		
 		txtNumSerie = new JTextField();
-		txtNumSerie.setEnabled(false);
-		txtNumSerie.setBounds(101, 22, 58, 20);
-		txtNumSerie.setText("S-"+Componente.getInstance().getNumserie());
+		txtNumSerie.setBounds(83, 22, 58, 20);
 		panel.add(txtNumSerie);
 		txtNumSerie.setColumns(10);
 		
@@ -251,7 +249,7 @@ public class AgregarComponente extends JDialog {
 		//cbxTipoDeConexion_DiscoDuro.setVisible(false);
 		panel_DiscoDuro.add(cbxTipoDeConexion_DiscoDuro);
 		
-		lblPrecio = new JLabel("Precio");
+		lblPrecio = new JLabel("Precio:");
 		lblPrecio.setForeground(Color.WHITE);
 		lblPrecio.setBackground(Color.BLACK);
 		lblPrecio.setBounds(583, 38, 54, 14);
@@ -317,44 +315,44 @@ public class AgregarComponente extends JDialog {
 		cbxTipo_Microprocesadores.setVisible(false);
 		panel_Microprocesadores.add(cbxTipo_Microprocesadores);
 		
-		panel_MotherBoard = new JPanel();
-		panel_MotherBoard.setForeground(Color.DARK_GRAY);
-		panel_MotherBoard.setBackground(Color.BLACK);
-		panel_MotherBoard.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
-		panel_MotherBoard.setBounds(10, 207, 753, 261);
-		contentPanel.add(panel_MotherBoard);
-		panel_MotherBoard.setLayout(null);
+		panel_TarjetaMadre = new JPanel();
+		panel_TarjetaMadre.setForeground(Color.DARK_GRAY);
+		panel_TarjetaMadre.setBackground(Color.BLACK);
+		panel_TarjetaMadre.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
+		panel_TarjetaMadre.setBounds(10, 207, 753, 261);
+		contentPanel.add(panel_TarjetaMadre);
+		panel_TarjetaMadre.setLayout(null);
 		
-		lblConector_MotherBoard = new JLabel("Conexion:");
-		lblConector_MotherBoard.setForeground(new Color(250, 250, 210));
-		lblConector_MotherBoard.setBackground(UIManager.getColor("Button.focus"));
-		lblConector_MotherBoard.setBounds(10, 49, 113, 14);
-		lblConector_MotherBoard.setVisible(true);
-		panel_MotherBoard.add(lblConector_MotherBoard);
+		lblConector_TarjetaMadre = new JLabel("Conexion:");
+		lblConector_TarjetaMadre.setForeground(new Color(250, 250, 210));
+		lblConector_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		lblConector_TarjetaMadre.setBounds(10, 49, 113, 14);
+		lblConector_TarjetaMadre.setVisible(true);
+		panel_TarjetaMadre.add(lblConector_TarjetaMadre);
 		
-		lblTipoRam_MotherBoard = new JLabel("TipoRam:");
-		lblTipoRam_MotherBoard.setForeground(new Color(250, 250, 210));
-		lblTipoRam_MotherBoard.setBackground(UIManager.getColor("Button.focus"));
-		lblTipoRam_MotherBoard.setBounds(10, 112, 113, 14);
-		panel_MotherBoard.add(lblTipoRam_MotherBoard);
+		lblTipoRam_TarjetaMadre = new JLabel("TipoRam:");
+		lblTipoRam_TarjetaMadre.setForeground(new Color(250, 250, 210));
+		lblTipoRam_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		lblTipoRam_TarjetaMadre.setBounds(10, 112, 113, 14);
+		panel_TarjetaMadre.add(lblTipoRam_TarjetaMadre);
 		
-		txtConexion_MotherBoard = new JTextField();
-		txtConexion_MotherBoard.setBackground(UIManager.getColor("Button.focus"));
-		txtConexion_MotherBoard.setForeground(new Color(0, 0, 255));
-		txtConexion_MotherBoard.setBounds(87, 46, 125, 20);
-		txtConexion_MotherBoard.setVisible(false);
-		panel_MotherBoard.add(txtConexion_MotherBoard);
-		txtConexion_MotherBoard.setColumns(10);
+		txtConexion_TarjetaMadre = new JTextField();
+		txtConexion_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		txtConexion_TarjetaMadre.setForeground(new Color(0, 0, 255));
+		txtConexion_TarjetaMadre.setBounds(87, 46, 125, 20);
+		txtConexion_TarjetaMadre.setVisible(false);
+		panel_TarjetaMadre.add(txtConexion_TarjetaMadre);
+		txtConexion_TarjetaMadre.setColumns(10);
 		
-		txtTipoRam_MotherBoard = new JTextField();
-		txtTipoRam_MotherBoard.setForeground(new Color(0, 0, 255));
-		txtTipoRam_MotherBoard.setBackground(UIManager.getColor("Button.focus"));
-		txtTipoRam_MotherBoard.setColumns(10);
-		txtTipoRam_MotherBoard.setBounds(87, 109, 125, 20);
-		txtTipoRam_MotherBoard.setVisible(false);
-		panel_MotherBoard.add(txtTipoRam_MotherBoard);
+		txtTipoRam_TarjetaMadre = new JTextField();
+		txtTipoRam_TarjetaMadre.setForeground(new Color(0, 0, 255));
+		txtTipoRam_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		txtTipoRam_TarjetaMadre.setColumns(10);
+		txtTipoRam_TarjetaMadre.setBounds(87, 109, 125, 20);
+		txtTipoRam_TarjetaMadre.setVisible(false);
+		panel_TarjetaMadre.add(txtTipoRam_TarjetaMadre);
 		
-		btnAgregar = new JButton("");
+		btnAgregar = new JButton("Add");
 		btnAgregar.setSelectedIcon(null);
 		btnAgregar.setBackground(UIManager.getColor("Button.focus"));
 		btnAgregar.setForeground(UIManager.getColor("Button.focus"));
@@ -377,9 +375,9 @@ public class AgregarComponente extends JDialog {
 			}
 		});
 		btnAgregar.setBounds(445, 66, 80, 25);
-		panel_MotherBoard.add(btnAgregar);
+		panel_TarjetaMadre.add(btnAgregar);
 		
-		btnQuitar = new JButton("");
+		btnQuitar = new JButton("Del");
 		btnQuitar.setForeground(UIManager.getColor("Button.focus"));
 		btnQuitar.setBackground(UIManager.getColor("Button.focus"));
 		btnQuitar.setEnabled(false);
@@ -401,14 +399,14 @@ public class AgregarComponente extends JDialog {
 			}
 		});
 		btnQuitar.setBounds(445, 175, 80, 25);
-		panel_MotherBoard.add(btnQuitar);
+		panel_TarjetaMadre.add(btnQuitar);
 		
 		panel_Disponibles = new JPanel();
 		panel_Disponibles.setForeground(Color.DARK_GRAY);
 		panel_Disponibles.setBackground(UIManager.getColor("Button.focus"));
 		panel_Disponibles.setBounds(227, 37, 192, 211);
 		panel_Disponibles.setVisible(false);
-		panel_MotherBoard.add(panel_Disponibles);
+		panel_TarjetaMadre.add(panel_Disponibles);
 		panel_Disponibles.setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -416,7 +414,7 @@ public class AgregarComponente extends JDialog {
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		modelo = new DefaultTableModel();
-		String array[]={"USB-C","USB-A","Jack 3.5 mm","SATA","PCIe","I/O","HDMI","Ethernet","VGA","Micro-SD","SD"};
+		String array[]={"TypeC","USB","Jack 3.5 mm","SATA","PCIe","I/O","HDMI","Ethernet","VGA","Micro-SD","SD"};
 		conexiones =new ArrayList<String>( Arrays.asList(array));
 		String []columns = {"Nombre"};
 		modelo.setColumnIdentifiers(columns);
@@ -448,7 +446,7 @@ public class AgregarComponente extends JDialog {
 		panel_Agregados.setBackground(UIManager.getColor("Button.focus"));
 		panel_Agregados.setBounds(549, 37, 192, 211);
 		panel_Agregados.setVisible(false);
-		panel_MotherBoard.add(panel_Agregados);
+		panel_TarjetaMadre.add(panel_Agregados);
 		panel_Agregados.setLayout(new BorderLayout(0, 0));
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -548,12 +546,12 @@ public class AgregarComponente extends JDialog {
 		rdbtnMemoriaRam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				rdbtnMotherboard.setSelected(false);
+				rdbtnTarjetaMadre.setSelected(false);
 				rdbtnDisco.setSelected(false);
 				rdbtnMicroprocesadores.setSelected(false);
 				rdbtnMemoriaRam.setSelected(true);
 				
-				panel_MotherBoard.setVisible(false);
+				panel_TarjetaMadre.setVisible(false);
 				panel_DiscoDuro.setVisible(false);
 				panel_MemoriaRam.setVisible(true);
 				panel_Microprocesadores.setVisible(false);
@@ -580,10 +578,10 @@ public class AgregarComponente extends JDialog {
 				lblTipoDeMemoria_MemoriaRam.setVisible(true);
 				cbxTipoDeMemoria_MemoriaRam.setVisible(true);
 				
-				lblConector_MotherBoard.setVisible(false);
-				txtConexion_MotherBoard.setVisible(false);
-				lblTipoRam_MotherBoard.setVisible(false);
-				txtTipoRam_MotherBoard.setVisible(false);
+				lblConector_TarjetaMadre.setVisible(false);
+				txtConexion_TarjetaMadre.setVisible(false);
+				lblTipoRam_TarjetaMadre.setVisible(false);
+				txtTipoRam_TarjetaMadre.setVisible(false);
 				panel_Disponibles.setVisible(false);
 				panel_Agregados.setVisible(false);
 				btnAgregar.setVisible(false);
@@ -594,19 +592,18 @@ public class AgregarComponente extends JDialog {
 		rdbtnMemoriaRam.setBounds(207, 23, 109, 23);
 		panel_1.add(rdbtnMemoriaRam);
 		
-		rdbtnDisco = new JRadioButton("Disco");
+		rdbtnDisco = new JRadioButton("Disco Duro");
 		rdbtnDisco.setBackground(Color.WHITE);
 		rdbtnDisco.setForeground(Color.BLACK);
-		rdbtnDisco.setSelected(true);
 		rdbtnDisco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				rdbtnMotherboard.setSelected(false);
+				rdbtnTarjetaMadre.setSelected(false);
 				rdbtnDisco.setSelected(true);
 				rdbtnMicroprocesadores.setSelected(false);
 				rdbtnMemoriaRam.setSelected(false);
 				
-				panel_MotherBoard.setVisible(false);
+				panel_TarjetaMadre.setVisible(false);
 				panel_DiscoDuro.setVisible(true);
 				panel_MemoriaRam.setVisible(false);
 				panel_Microprocesadores.setVisible(false);
@@ -633,10 +630,10 @@ public class AgregarComponente extends JDialog {
 				lblTipoDeMemoria_MemoriaRam.setVisible(false);
 				cbxTipoDeMemoria_MemoriaRam.setVisible(false);
 				
-				lblConector_MotherBoard.setVisible(false);
-				txtConexion_MotherBoard.setVisible(false);
-				lblTipoRam_MotherBoard.setVisible(false);
-				txtTipoRam_MotherBoard.setVisible(false);
+				lblConector_TarjetaMadre.setVisible(false);
+				txtConexion_TarjetaMadre.setVisible(false);
+				lblTipoRam_TarjetaMadre.setVisible(false);
+				txtTipoRam_TarjetaMadre.setVisible(false);
 				panel_Disponibles.setVisible(false);
 				panel_Agregados.setVisible(false);
 				btnAgregar.setVisible(false);
@@ -652,12 +649,12 @@ public class AgregarComponente extends JDialog {
 		rdbtnMicroprocesadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				rdbtnMotherboard.setSelected(false);
+				rdbtnTarjetaMadre.setSelected(false);
 				rdbtnDisco.setSelected(false);
 				rdbtnMicroprocesadores.setSelected(true);
 				rdbtnMemoriaRam.setSelected(false);
 				
-				panel_MotherBoard.setVisible(false);
+				panel_TarjetaMadre.setVisible(false);
 				panel_DiscoDuro.setVisible(false);
 				panel_MemoriaRam.setVisible(false);
 				panel_Microprocesadores.setVisible(true);
@@ -683,10 +680,10 @@ public class AgregarComponente extends JDialog {
 				lblTipoDeMemoria_MemoriaRam.setVisible(false);
 				cbxTipoDeMemoria_MemoriaRam.setVisible(false);
 				
-				lblConector_MotherBoard.setVisible(false);
-				txtConexion_MotherBoard.setVisible(false);
-				lblTipoRam_MotherBoard.setVisible(false);
-				txtTipoRam_MotherBoard.setVisible(false);
+				lblConector_TarjetaMadre.setVisible(false);
+				txtConexion_TarjetaMadre.setVisible(false);
+				lblTipoRam_TarjetaMadre.setVisible(false);
+				txtTipoRam_TarjetaMadre.setVisible(false);
 				panel_Disponibles.setVisible(false);
 				panel_Agregados.setVisible(false);
 				btnAgregar.setVisible(false);
@@ -697,18 +694,18 @@ public class AgregarComponente extends JDialog {
 		rdbtnMicroprocesadores.setBounds(365, 23, 147, 23);
 		panel_1.add(rdbtnMicroprocesadores);
 		
-		rdbtnMotherboard = new JRadioButton("MotherBoard");
-		rdbtnMotherboard.setForeground(Color.BLACK);
-		rdbtnMotherboard.setBackground(Color.WHITE);
-		rdbtnMotherboard.addActionListener(new ActionListener() {
+		rdbtnTarjetaMadre = new JRadioButton("TarjetaMadre");
+		rdbtnTarjetaMadre.setForeground(Color.BLACK);
+		rdbtnTarjetaMadre.setBackground(Color.WHITE);
+		rdbtnTarjetaMadre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				rdbtnMotherboard.setSelected(true);
+				rdbtnTarjetaMadre.setSelected(true);
 				rdbtnDisco.setSelected(false);
 				rdbtnMicroprocesadores.setSelected(false);
 				rdbtnMemoriaRam.setSelected(false);
 				
-				panel_MotherBoard.setVisible(true);
+				panel_TarjetaMadre.setVisible(true);
 				panel_DiscoDuro.setVisible(false);
 				panel_MemoriaRam.setVisible(false);
 				panel_Microprocesadores.setVisible(false);
@@ -735,10 +732,10 @@ public class AgregarComponente extends JDialog {
 				lblTipoDeMemoria_MemoriaRam.setVisible(false);
 				cbxTipoDeMemoria_MemoriaRam.setVisible(false);
 				
-				lblConector_MotherBoard.setVisible(true);
-				txtConexion_MotherBoard.setVisible(true);
-				lblTipoRam_MotherBoard.setVisible(true);
-				txtTipoRam_MotherBoard.setVisible(true);
+				lblConector_TarjetaMadre.setVisible(true);
+				txtConexion_TarjetaMadre.setVisible(true);
+				lblTipoRam_TarjetaMadre.setVisible(true);
+				txtTipoRam_TarjetaMadre.setVisible(true);
 				panel_Disponibles.setVisible(true);
 				panel_Agregados.setVisible(true);
 				btnAgregar.setVisible(true);
@@ -748,8 +745,8 @@ public class AgregarComponente extends JDialog {
 				
 			}
 		});
-		rdbtnMotherboard.setBounds(561, 23, 139, 23);
-		panel_1.add(rdbtnMotherboard);
+		rdbtnTarjetaMadre.setBounds(561, 23, 139, 23);
+		panel_1.add(rdbtnTarjetaMadre);
 		
 		lblTipoCompo = new JLabel("Tipo de Componente");
 		lblTipoCompo.setForeground(Color.WHITE);
@@ -760,8 +757,8 @@ public class AgregarComponente extends JDialog {
 		
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBorder(new LineBorder(new Color(128, 0, 0)));
-			buttonPane.setBackground(new Color(0, 128, 128));
+			buttonPane.setBorder(null);
+			buttonPane.setBackground(Color.DARK_GRAY);
 			buttonPane.setForeground(UIManager.getColor("Button.focus"));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -791,11 +788,12 @@ public class AgregarComponente extends JDialog {
 							if(cbxUnidadDeAlmacenamiento_DiscoDuro.getSelectedItem().toString() == "Tb") {
 								Gb = false;
 							}
-							aux = new DiscoDuro(txtNumSerie.getText(), marca, modelo);
+							aux = new DiscoDuro(almacenamiento, cantDisp, cantDisp, cantDisp, txtNumSerie.getText(), marca, almacenamiento, modelo);
 							Empresa.getInstance().addcomponente(aux);
-							JOptionPane.showMessageDialog(null, "El Componente ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
+							JOptionPane.showMessageDialog(null, "El DiscoDuro ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
 						}
+						
 						if(rdbtnMemoriaRam.isSelected()) {
 							float cantidadMem = Float.parseFloat(spnCantidadDeMemoria_MemoriaRam.getValue().toString());
 							String tipo= cbxTipoDeMemoria_MemoriaRam.getSelectedItem().toString();
@@ -803,9 +801,9 @@ public class AgregarComponente extends JDialog {
 							if(cbxMemoria_MemoriaRam.getSelectedItem().toString() == "Mb") {
 								Gb = false;
 							}
-							aux = new MemoriaRam(txtNumSerie.getText(), modelo, marca, cantMin, cantDisp, cantMin, cantidadMem, tipo, Gb);
+							// aux = new MemoriaRam(txtNumSerie.getText(), modelo, marca, cantMin, cantDisp, cantMin, cantidadMem, tipo, Gb);
 							Empresa.getInstance().addcomponente(aux);
-							JOptionPane.showMessageDialog(null, "El Componente ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
+							JOptionPane.showMessageDialog(null, "El Componente ha sido registrado exitosamente. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
 						}
 						if(rdbtnMicroprocesadores.isSelected()) {
@@ -817,7 +815,7 @@ public class AgregarComponente extends JDialog {
 							if(cbxTipo_Microprocesadores.getSelectedItem().toString() == "MHz") {
 								GHz = false;
 							}
-								aux = new MicroProcesador(txtNumSerie.getText(), modelo, marca, cantMin, conector, velocidad, GHz);
+								// aux = new MicroProcesador(txtNumSerie.getText(), modelo, marca, cantMin, conector, velocidad, GHz);
 								Empresa.getInstance().addcomponente(aux);
 								JOptionPane.showMessageDialog(null, "El Componente ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
@@ -827,19 +825,19 @@ public class AgregarComponente extends JDialog {
 						}
 						}
 						
-						if(rdbtnMotherboard.isSelected() ) {
-							if(!txtConexion_MotherBoard.getText().isEmpty() || !txtTipoRam_MotherBoard.getText().isEmpty() || modelo_1.getRowCount()>0){
-							String conector = txtConexion_MotherBoard.getText();
-							String tipoRam = txtTipoRam_MotherBoard.getText();
+						if(rdbtnTarjetaMadre.isSelected() ) {
+							if(!txtConexion_TarjetaMadre.getText().isEmpty() || !txtTipoRam_TarjetaMadre.getText().isEmpty() || modelo_1.getRowCount()>0){
+							String conector = txtConexion_TarjetaMadre.getText();
+							String tipoRam = txtTipoRam_TarjetaMadre.getText();
 							
-							aux = new TarjetaMadre(txtNumSerie.getText(), modelo, marca, cantMin, conector, tipoRam, conexiones);
+							// aux = new TarjetaMadre(txtNumSerie.getText(), modelo, marca, cantMin, conector, tipoRam, conexiones);
 							Empresa.getInstance().addcomponente(aux);
 							JOptionPane.showMessageDialog(null, "El Componente se ha registrado exitosamente", "información", JOptionPane.INFORMATION_MESSAGE);	
 
 						}else {
-							JOptionPane.showMessageDialog(null, "Recuerde que debe de llenar los apartados de la seccion Motherboard.\nTambien debe verificar que la tabla tenga al menos 1 conexión agregada.", "Información", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "Complete todos lo necesario para agregar la Tarjeta Madre", "Información", JOptionPane.INFORMATION_MESSAGE);
 						}
-							//Empresa.getInstance().insertarComponente(aux);
+							Empresa.getInstance().addcomponente(aux);
 						}
 						
 						LIMPIAR();
@@ -847,7 +845,7 @@ public class AgregarComponente extends JDialog {
 							JOptionPane.showMessageDialog(null,"Toda la informacion debe ser completada","ERROR",JOptionPane.ERROR_MESSAGE);
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "El precio de venta debe de ser al menos un 10% mas alto que el precio de compra.\nPOR POLITICA DE LA EMPRESA.\nRecuerde que la cantidad real debe ser mayor que la míninma. ", "ERROR", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "El precio de venta debe superar el precio de compra. ", "ERROR", JOptionPane.ERROR_MESSAGE);
 					}
 				
 				}
@@ -883,9 +881,9 @@ public class AgregarComponente extends JDialog {
 		txtMarca.setText("");
 		spnCantMinima.setValue(new Integer(1));
 		spnCantDispo.setValue(new Integer(1));
-		//Motherboard
-		txtConexion_MotherBoard.setText("");
-		txtTipoRam_MotherBoard.setText("");
+		//TarjetaMadre
+		txtConexion_TarjetaMadre.setText("");
+		txtTipoRam_TarjetaMadre.setText("");
 		//disco
 		spnCantAlmacenamiento_DiscoDuro.setValue(new Integer(1));
 		cbxTipoDeConexion_DiscoDuro.setSelectedItem(0);
