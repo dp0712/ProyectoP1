@@ -73,9 +73,9 @@ public class ListadodeComponentes extends JDialog {
 	 * Create the dialog.
 	 * @param b 
 	 */
-	public ListadodeComponentes(Combos aux,int mode) {
+	public ListadodeComponentes() {
 		setTitle("Listado de Componentes");
-		
+
 		this.cargar=aux;
 		this.mode=mode;
 		if(cargar==null) {
@@ -227,12 +227,12 @@ public class ListadodeComponentes extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						if('C'==((String)modelo.getValueAt(modelrow, 0)).charAt(0)) {
 							c = Empresa.getInstance().buscarelcombo((String)modelo.getValueAt(modelrow, 0));
-							Venta a = new Venta(c.getCodigo(),c.getNombre(),c.calcuprecio(),1);
+							Venta a = new Venta(c.getCodigo(),c.calcuprecio(),1);
 							dispose();
 							a.setVisible(true);
 						}else {
 							Componente c = Empresa.getInstance().buscarelomponente((String)modelo.getValueAt(modelrow, 0));
-							Venta a = new Venta(c.getNumserie(),c.getMarca()+" "+c.getModelo(),c.getPrecio(),c.getCantdispo());
+							Venta a = new Venta(c.getNumserie()+c.getModelo(),c.getPrecio(),c.getCantdispo());
 							dispose();
 							a.setVisible(true);
 						}
@@ -244,7 +244,7 @@ public class ListadodeComponentes extends JDialog {
 				btnInformacion.setBackground(UIManager.getColor("Button.focus"));
 				btnInformacion.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						ListadodeComponentes a = new ListadodeComponentes(c, 0);
+						ListadodeComponentes a = new ListadodeComponentes();
 						a.setVisible(true);
 					}
 				});
