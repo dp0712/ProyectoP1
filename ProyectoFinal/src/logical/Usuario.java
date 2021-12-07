@@ -1,6 +1,6 @@
 package logical;
 
-public abstract class Usuario {
+public  class Usuario {
 
 protected String nombre;
 protected String direccion;
@@ -8,7 +8,7 @@ protected String telefono;
 protected String login;
 protected String username;
 protected String password;
-public Usuario(String nombre, String direccion, String telefono, String login, String username, String password) {
+public Usuario(String nombre, String direccion, String telefono, String login, String username, String password, int i) {
 	super();
 	this.nombre = nombre;
 	this.direccion = direccion;
