@@ -100,16 +100,16 @@ public class ListadodeComponentes extends JDialog {
 		setBounds(100, 100, 854, 466);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setForeground(SystemColor.textHighlight);
-		contentPanel.setBackground(UIManager.getColor("Button.focus"));
+		contentPanel.setForeground(Color.WHITE);
+		contentPanel.setBackground(Color.DARK_GRAY);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BorderLayout(0, 0));
 		{
 			JPanel panel = new JPanel();
-			panel.setForeground(UIManager.getColor("Button.focus"));
-			panel.setBackground(UIManager.getColor("Button.focus"));
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Listado", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
+			panel.setForeground(Color.DARK_GRAY);
+			panel.setBackground(Color.DARK_GRAY);
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Listado de Clientes", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
 			
@@ -152,15 +152,15 @@ public class ListadodeComponentes extends JDialog {
 			
 			JLabel lblNewLabel = new JLabel("Filtro");
 			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-			lblNewLabel.setForeground(SystemColor.textHighlight);
+			lblNewLabel.setForeground(Color.WHITE);
 			lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
-			lblNewLabel.setBounds(576, 14, 93, 25);
+			lblNewLabel.setBounds(631, 11, 50, 25);
 			panel.add(lblNewLabel);
 			
 			cbxFiltro = new JComboBox();
 			cbxFiltro.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			cbxFiltro.setBackground(UIManager.getColor("Button.focus"));
-			cbxFiltro.setForeground(SystemColor.textHighlight);
+			cbxFiltro.setForeground(Color.BLACK);
 			cbxFiltro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					loadTable(cbxFiltro.getSelectedIndex());
@@ -183,15 +183,15 @@ public class ListadodeComponentes extends JDialog {
 			panel.add(cbxFiltro);
 			
 			JLabel lblBuscador = new JLabel("Buscador:");
-			lblBuscador.setForeground(SystemColor.textHighlight);
+			lblBuscador.setForeground(Color.WHITE);
 			lblBuscador.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			lblBuscador.setBackground(Color.BLACK);
-			lblBuscador.setBounds(6, 14, 134, 25);
+			lblBuscador.setBounds(6, 14, 93, 25);
 			panel.add(lblBuscador);
 			
 			txtBusqueda = new JTextField();
-			txtBusqueda.setBackground(UIManager.getColor("Button.focus"));
-			txtBusqueda.setForeground(new Color(0, 0, 255));
+			txtBusqueda.setBackground(Color.WHITE);
+			txtBusqueda.setForeground(Color.BLACK);
 			txtBusqueda.addKeyListener(new KeyAdapter() {
 				@Override
 				public void keyPressed(KeyEvent e) {
@@ -207,15 +207,15 @@ public class ListadodeComponentes extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(UIManager.getColor("Button.focus"));
-			buttonPane.setForeground(UIManager.getColor("Button.focus"));
+			buttonPane.setBackground(Color.DARK_GRAY);
+			buttonPane.setForeground(Color.DARK_GRAY);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				
 				btnSeleccionar = new JButton("Seleccionar");
 				btnSeleccionar.setBackground(UIManager.getColor("Button.focus"));
-				btnSeleccionar.setForeground(new Color(0, 255, 0));
+				btnSeleccionar.setForeground(Color.BLACK);
 				btnSeleccionar.setEnabled(false);
 				if(mode==0) {
 					btnSeleccionar.setVisible(true);
@@ -240,7 +240,7 @@ public class ListadodeComponentes extends JDialog {
 				});
 				
 				btnInformacion = new JButton("Informacion");
-				btnInformacion.setForeground(new Color(0, 0, 205));
+				btnInformacion.setForeground(Color.BLACK);
 				btnInformacion.setBackground(UIManager.getColor("Button.focus"));
 				btnInformacion.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -255,7 +255,7 @@ public class ListadodeComponentes extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancelar");
 				cancelButton.setBackground(UIManager.getColor("Button.focus"));
-				cancelButton.setForeground(new Color(255, 0, 0));
+				cancelButton.setForeground(Color.BLACK);
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
