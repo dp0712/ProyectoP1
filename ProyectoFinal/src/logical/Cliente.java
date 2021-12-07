@@ -1,6 +1,6 @@
 package logical;
 
-public class Cliente {
+public abstract class Cliente {
 
 private String nombre;
 private String direccion;
@@ -10,13 +10,12 @@ private String cedula;
 private float LimitCredi;
 private float cuentascobra;
 public Cliente(String nombre, String direccion, String telefono, String rnc, float limitCredi,
-		float cuentascobra, String cedula) {
+		float cuentascobra) {
 	super();
 	this.nombre = nombre;
 	this.direccion = direccion;
 	this.telefono = telefono;
 	this.rnc = rnc;
-	this.cedula = cedula;
 	LimitCredi = limitCredi;
 	this.cuentascobra = cuentascobra;
 }
