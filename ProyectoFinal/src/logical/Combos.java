@@ -8,7 +8,7 @@ public class Combos {
 	private String codigo;
 	private float descuento;
 	private ArrayList<Componente>miscomponentes= new ArrayList<Componente>();
-	public Combos(String nombre, String codigo, float descuento) {
+	public Combos(String nombre, String codigo) {
 		super();
 		this.miscomponentes= new ArrayList<Componente>();
 		this.nombre=nombre;
