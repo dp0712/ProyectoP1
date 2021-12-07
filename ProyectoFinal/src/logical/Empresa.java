@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+import logico.Proveedor;
 import visual.Principal;
 
 
@@ -19,6 +20,7 @@ public class Empresa implements Serializable{
 	private ArrayList<Cliente>misclientes;
 	private ArrayList<Componente>miscomponentes;
 	private ArrayList<Usuario>misusuarios;
+	private ArrayList<Proveedor>misproveedores;
 	private int codifact=1;
 	private int codicompo=1;
 	public Empresa() {
@@ -198,7 +200,7 @@ public class Empresa implements Serializable{
 		this.miscomponentes.add(componente); 
 		setCodicompo(getCodicompo()+1);
 	}
-	public Componente buscarelomponente(int numserie) {
+	public Componente buscarelomponente(String string) {
 		Componente componente = null;
 		int i = 0;
 		boolean encontrado=false;
@@ -320,8 +322,26 @@ public class Empresa implements Serializable{
 		}
 		return res;
 	}
+	public ArrayList<Proveedor> getMisproveedores() {
+		return misproveedores;
+	}
+	public void setMisproveedores(ArrayList<Proveedor> misproveedores) {
+		this.misproveedores = misproveedores;
+	}
 
-
+	public Proveedor listproveedor(String valueAt) {
+		int i = 0;
+		boolean encontrado = false;
+		Proveedor p = null;
+		while(i<misproveedores.size() && !encontrado) {
+			if(misproveedores.get(i).getRnc().equalsIgnoreCase(valueAt)) {
+				p = misproveedores.get(i);
+				encontrado = true;
+			}
+			i++;
+		}
+		return p;
+	}
 
 
 
