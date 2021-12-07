@@ -70,10 +70,10 @@ public class RegisProveedor extends JDialog {
 	 * Create the dialog.
 	 */
 	public RegisProveedor() {
+		setResizable(false);
 		setForeground(Color.DARK_GRAY);
 		setBackground(Color.BLACK);
 		setModal(true);
-		setResizable(false);
 		setTitle("Registro Proveedor");
 		setBounds(100, 100, 730, 606);
 		setLocationRelativeTo(null);
@@ -89,40 +89,41 @@ public class RegisProveedor extends JDialog {
 		
 		{
 			JPanel panel = new JPanel();
-			panel.setBackground(Color.BLACK);
+			panel.setBackground(Color.DARK_GRAY);
 			panel.setForeground(Color.DARK_GRAY);
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
 			
 			JLabel lblCodigo = new JLabel("Codigo: ");
-			lblCodigo.setForeground(new Color(250, 250, 210));
+			lblCodigo.setBackground(Color.WHITE);
+			lblCodigo.setForeground(Color.WHITE);
 			lblCodigo.setBounds(12, 13, 116, 16);
 			panel.add(lblCodigo);
 			
 			txtCodigo = new JTextField();
-			txtCodigo.setForeground(new Color(0, 0, 255));
-			txtCodigo.setBackground(UIManager.getColor("Button.focus"));
+			txtCodigo.setForeground(Color.BLACK);
+			txtCodigo.setBackground(Color.LIGHT_GRAY);
 			txtCodigo.setEditable(false);
 			txtCodigo.setBounds(12, 42, 116, 26);
 			panel.add(txtCodigo);
 			txtCodigo.setColumns(10);
 			
-			JLabel lblNombre = new JLabel("Nombre Empresa:");
-			lblNombre.setForeground(new Color(250, 250, 210));
+			JLabel lblNombre = new JLabel("Nombre de la Empresa:");
+			lblNombre.setForeground(Color.WHITE);
 			lblNombre.setBackground(UIManager.getColor("Button.focus"));
 			lblNombre.setBounds(220, 13, 156, 16);
 			panel.add(lblNombre);
 			
 			txtNombre = new JTextField();
-			txtNombre.setForeground(new Color(0, 0, 255));
-			txtNombre.setBackground(UIManager.getColor("Button.focus"));
+			txtNombre.setForeground(Color.BLACK);
+			txtNombre.setBackground(Color.LIGHT_GRAY);
 			txtNombre.setBounds(220, 42, 474, 26);
 			panel.add(txtNombre);
 			txtNombre.setColumns(10);
 			
 			JLabel lblTelefono = new JLabel("Telefono:");
 			lblTelefono.setBackground(UIManager.getColor("Button.focus"));
-			lblTelefono.setForeground(new Color(250, 250, 210));
+			lblTelefono.setForeground(Color.WHITE);
 			lblTelefono.setBounds(220, 77, 102, 16);
 			panel.add(lblTelefono);
 			
@@ -136,14 +137,14 @@ public class RegisProveedor extends JDialog {
 					}
 				}
 			});
-			txtTelefono.setBackground(UIManager.getColor("Button.focus"));
-			txtTelefono.setForeground(new Color(0, 0, 255));
+			txtTelefono.setBackground(Color.LIGHT_GRAY);
+			txtTelefono.setForeground(Color.BLACK);
 			txtTelefono.setBounds(220, 114, 474, 26);
 			panel.add(txtTelefono);
 			txtTelefono.setColumns(10);
 			
 			JLabel lblCredito = new JLabel("Credito Disponible:");
-			lblCredito.setForeground(new Color(250, 250, 210));
+			lblCredito.setForeground(Color.WHITE);
 			lblCredito.setBackground(UIManager.getColor("Button.focus"));
 			lblCredito.setBounds(12, 77, 136, 16);
 			panel.add(lblCredito);
@@ -158,29 +159,29 @@ public class RegisProveedor extends JDialog {
 					}
 				}
 			});
-			txtCredito.setBackground(UIManager.getColor("Button.focus"));
-			txtCredito.setForeground(new Color(0, 0, 255));
+			txtCredito.setBackground(Color.LIGHT_GRAY);
+			txtCredito.setForeground(Color.BLACK);
 			txtCredito.setBounds(12, 114, 116, 26);
 			panel.add(txtCredito);
 			txtCredito.setColumns(10);
 			
 			JLabel lblDireccion = new JLabel("Direccion:");
-			lblDireccion.setForeground(new Color(250, 250, 210));
+			lblDireccion.setForeground(Color.WHITE);
 			lblDireccion.setBackground(UIManager.getColor("Button.focus"));
 			lblDireccion.setBounds(12, 149, 116, 16);
 			panel.add(lblDireccion);
 			
 			txtDireccion = new JTextField();
-			txtDireccion.setForeground(new Color(0, 0, 255));
-			txtDireccion.setBackground(UIManager.getColor("Button.focus"));
+			txtDireccion.setForeground(Color.BLACK);
+			txtDireccion.setBackground(Color.LIGHT_GRAY);
 			txtDireccion.setBounds(12, 178, 682, 26);
 			panel.add(txtDireccion);
 			txtDireccion.setColumns(10);
 			
 			JPanel panel_1 = new JPanel();
-			panel_1.setForeground(new Color(128, 0, 0));
-			panel_1.setBackground(UIManager.getColor("Button.focus"));
-			panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Disponibles", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
+			panel_1.setForeground(Color.WHITE);
+			panel_1.setBackground(Color.DARK_GRAY);
+			panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Disponibles", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
 			panel_1.setBounds(12, 296, 297, 197);
 			panel.add(panel_1);
 			panel_1.setLayout(new BorderLayout(0, 0));
@@ -215,7 +216,7 @@ public class RegisProveedor extends JDialog {
 			table.setModel(modelo);
 			scrollPane.setViewportView(table);
 			
-			btnAgregar = new JButton("");
+			btnAgregar = new JButton("Add");
 			btnAgregar.setForeground(UIManager.getColor("Button.focus"));
 			btnAgregar.setBackground(UIManager.getColor("Button.focus"));
 			btnAgregar.addActionListener(new ActionListener() {
@@ -238,7 +239,7 @@ public class RegisProveedor extends JDialog {
 			btnAgregar.setBounds(319, 329, 68, 25);
 			panel.add(btnAgregar);
 			
-			btnQuitar = new JButton("");
+			btnQuitar = new JButton("Del");
 			btnQuitar.setBackground(UIManager.getColor("Button.focus"));
 			btnQuitar.setForeground(UIManager.getColor("Button.focus"));
 			btnQuitar.addActionListener(new ActionListener() {
@@ -261,9 +262,9 @@ public class RegisProveedor extends JDialog {
 			panel.add(btnQuitar);
 			
 			JPanel panel_2 = new JPanel();
-			panel_2.setBackground(UIManager.getColor("Button.focus"));
-			panel_2.setForeground(new Color(128, 0, 0));
-			panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Agregados", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
+			panel_2.setBackground(Color.DARK_GRAY);
+			panel_2.setForeground(new Color(255, 255, 255));
+			panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Agregados", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
 			panel_2.setBounds(397, 296, 297, 197);
 			panel.add(panel_2);
 			panel_2.setLayout(new BorderLayout(0, 0));
@@ -300,13 +301,13 @@ public class RegisProveedor extends JDialog {
 			
 			JLabel lblFiltro = new JLabel("Filtro:");
 			lblFiltro.setBackground(UIManager.getColor("Button.focus"));
-			lblFiltro.setForeground(new Color(250, 250, 210));
+			lblFiltro.setForeground(Color.WHITE);
 			lblFiltro.setBounds(12, 220, 83, 16);
 			panel.add(lblFiltro);
 			
 			cbxFiltro = new JComboBox();
 			cbxFiltro.setBackground(UIManager.getColor("Button.focus"));
-			cbxFiltro.setForeground(new Color(0, 0, 255));
+			cbxFiltro.setForeground(Color.BLACK);
 			cbxFiltro.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CargarTabla();
@@ -320,13 +321,12 @@ public class RegisProveedor extends JDialog {
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setForeground(Color.DARK_GRAY);
-			buttonPane.setBackground(Color.BLACK);
-			buttonPane.setBorder(new LineBorder(new Color(184, 134, 11)));
+			buttonPane.setBackground(Color.DARK_GRAY);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				okButton = new JButton("Registrar");
-				okButton.setForeground(new Color(0, 255, 0));
+				okButton.setForeground(Color.BLACK);
 				okButton.setBackground(UIManager.getColor("Button.focus"));
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -352,7 +352,7 @@ public class RegisProveedor extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancelar");
 				cancelButton.setBackground(UIManager.getColor("Button.focus"));
-				cancelButton.setForeground(new Color(255, 0, 0));
+				cancelButton.setForeground(Color.BLACK);
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						disponibles.removeAll(disponibles);
