@@ -2,6 +2,10 @@ package logical;
 
 public class MemoriaRam extends Componente{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4160917860171464248L;
 	private String marca;
 	private String modelo;
 	private float cantialmac;

@@ -68,7 +68,7 @@ public class Empresa implements Serializable{
 	public static Empresa empresa = null;
 	public static Empresa getInstance() {
 		if(empresa == null) {
-			empresa = new Empresa(); //no entiendo por que da error
+			empresa = new Empresa();
 		}
 		return empresa;
 	}
@@ -338,6 +338,9 @@ public class Empresa implements Serializable{
 			i++;
 		}
 		return p;
+	}
+	public static void setEmpresa(Empresa empresa) {
+		Empresa.empresa = empresa;
 	}
 
 

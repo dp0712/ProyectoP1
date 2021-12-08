@@ -529,7 +529,6 @@ public class Facturar extends JDialog {
 		lblCedula.setText(c.getCedula());
 		lblDireccion.setText(c.getDireccion());
 		lblTelefono.setText(c.getTelefono());
-		lblLimiteCredito.setText("Limite de Credito: "+c.getLimitCredi());
 		btnSeleccionarCliente.setVisible(false);
 		botones();
 		

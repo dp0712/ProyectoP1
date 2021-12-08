@@ -1,23 +1,26 @@
 package logical;
 
-public abstract class Cliente {
+import java.io.Serializable;
 
+public class Cliente implements Serializable{
+
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5085673782232108609L;
 private String nombre;
 private String direccion;
 private String telefono;
 private String rnc;
 private String cedula;
-private float LimitCredi;
 private float cuentascobra;
-public Cliente(String nombre, String direccion, String telefono, String rnc, float limitCredi,
-		float cuentascobra) {
+public Cliente(String nombre, String direccion, String telefono, String cedula) {
 	super();
 	this.nombre = nombre;
 	this.direccion = direccion;
 	this.telefono = telefono;
-	this.rnc = rnc;
-	LimitCredi = limitCredi;
-	this.cuentascobra = cuentascobra;
+	this.cedula= cedula;
+	this.cuentascobra =0;
 }
 public String getNombre() {
 	return nombre;
@@ -49,12 +52,7 @@ public String getCedula() {
 public void setCedula(String cedula) {
 	this.cedula = cedula;
 }
-public float getLimitCredi() {
-	return LimitCredi;
-}
-public void setLimitCredi(float limitCredi) {
-	LimitCredi = limitCredi;
-}
+
 public float getCuentascobra() {
 	return cuentascobra;
 }

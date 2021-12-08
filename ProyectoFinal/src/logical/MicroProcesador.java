@@ -1,6 +1,10 @@
 package logical;
 
 public class MicroProcesador extends Componente {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1243300301321247577L;
 private String marca;
 private String modelo;
 private String tipoconector;

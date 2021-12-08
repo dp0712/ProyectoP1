@@ -164,8 +164,8 @@ public class RegisCliente extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						Cliente c = null;
-							c = new Cliente(txtNombre.getText(), txtCedula.getText(), txtTelefono.getText(), txtDireccion.getText(), 0.0, 0);
-			
+							c = new Cliente(txtNombre.getText(), txtDireccion.getText(),txtTelefono.getText(),txtCedula.getText() );
+						
 						Empresa.getInstance().insertarCliente(c);
 						Facturar.CargarCliente((Cliente)c);
 						JOptionPane.showMessageDialog(null, "Se ha registrado correctamente el cliente");

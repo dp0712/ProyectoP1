@@ -3,6 +3,10 @@ package logical;
 import java.util.ArrayList;
 
 public class TarjetaMadre extends Componente {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6815970787464307667L;
 private String marca;
 private String modelo;
 private String tipoconector;

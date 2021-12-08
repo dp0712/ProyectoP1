@@ -1,6 +1,11 @@
 package logical;
 
 public class DiscoDuro extends Componente {
+	
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9221468675029494154L;
 private String marca;
 private String modelo;
 private float cantalmacenamiento;

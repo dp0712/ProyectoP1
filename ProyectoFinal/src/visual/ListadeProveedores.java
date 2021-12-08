@@ -157,7 +157,7 @@ public class ListadeProveedores extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						Combos c = new Combos("Componentes que trae: "+p.getNombre(), "aux");
-						for(Componente a : p.getComponentes()) { // no se este error
+						for(Componente a : Empresa.getInstance().getMiscomponentes()) { // no se este error
 							c.insertcomponentes(a);
 						}
 						ListadodeComponentes a = new ListadodeComponentes();

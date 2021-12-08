@@ -1,10 +1,15 @@
 package logical;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 
-public class Proveedor {
+public class Proveedor implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2616534400308281274L;
 private String nombre;
 private String rnc;
 private String telefono;
