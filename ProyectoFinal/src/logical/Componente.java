@@ -3,9 +3,9 @@ package logical;
 public abstract class Componente {
 protected float precio;
 protected int cantdispo;
-protected int numserie;
+protected String numserie;
 protected int cantmin;
-public Componente(float precio, int cantdispo, int numserie, int cantmin) {
+public Componente(float precio, int cantdispo, String numserie, int cantmin) {
 	super();
 	this.precio = precio;
 	this.cantdispo = cantdispo;
@@ -24,10 +24,10 @@ public int getCantdispo() {
 public void setCantdispo(int cantdispo) {
 	this.cantdispo = cantdispo;
 }
-public int getNumserie() {
+public String getNumserie() {
 	return numserie;
 }
-public void setNumserie(int numserie) {
+public void setNumserie(String numserie) {
 	this.numserie = numserie;
 }
 public int getCantmin() {
