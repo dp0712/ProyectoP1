@@ -48,7 +48,7 @@ import java.awt.Toolkit;
 
 public class ListadodeComponentes extends JDialog {
 	
-	private Componente auxiliar = null;
+	private Componente aux = null;
 	private final JPanel contentPanel = new JPanel();
 	private JTable table;
 	
@@ -236,7 +236,8 @@ public class ListadodeComponentes extends JDialog {
 						/*	Venta a = new Venta(c.getNumserie()+c.getModelo(),c.getPrecio(),c.getCantdispo());
 							dispose();
 							a.setVisible(true);
-						*/}
+							*/
+						}
 					}
 				});
 				
