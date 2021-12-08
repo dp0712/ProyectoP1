@@ -233,10 +233,10 @@ public class ListadodeComponentes extends JDialog {
 							a.setVisible(true);
 						}else {
 							Componente c = Empresa.getInstance().buscarelomponente((String)modelo.getValueAt(modelrow, 0));
-							Venta a = new Venta(c.getNumserie()+c.getModelo(),c.getPrecio(),c.getCantdispo());
+						/*	Venta a = new Venta(c.getNumserie()+c.getModelo(),c.getPrecio(),c.getCantdispo());
 							dispose();
 							a.setVisible(true);
-						}
+						*/}
 					}
 				});
 				

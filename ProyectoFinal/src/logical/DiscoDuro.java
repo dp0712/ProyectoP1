@@ -5,14 +5,15 @@ private String marca;
 private String modelo;
 private float cantalmacenamiento;
 private String tipocone;
-public DiscoDuro(float precio, int cantdispo, int numserie, int cantmin, String marca, String modelo,
+public DiscoDuro(float precio, int cantdispo, int cantDisp, String marca, String modelo,
 		float cantalmacenamiento, String tipocone) {
-	super(precio, cantdispo, numserie, cantmin);
+	super(precio, cantdispo, tipocone, cantDisp);
 	this.marca = marca;
 	this.modelo = modelo;
 	this.cantalmacenamiento = cantalmacenamiento;
 	this.tipocone = tipocone;
 }
+
 public String getMarca() {
 	return marca;
 }

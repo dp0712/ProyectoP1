@@ -788,7 +788,7 @@ public class AgregarComponente extends JDialog {
 							if(cbxUnidadDeAlmacenamiento_DiscoDuro.getSelectedItem().toString() == "Tb") {
 								Gb = false;
 							}
-							aux = new DiscoDuro(almacenamiento, cantDisp, cantDisp, cantDisp, txtNumSerie.getText(), marca, almacenamiento, modelo);
+							aux = new DiscoDuro(almacenamiento, cantDisp, cantDisp, txtNumSerie.getText(), marca, almacenamiento, modelo);
 							Empresa.getInstance().addcomponente(aux);
 							JOptionPane.showMessageDialog(null, "El DiscoDuro ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 

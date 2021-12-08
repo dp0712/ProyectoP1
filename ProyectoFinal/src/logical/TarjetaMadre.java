@@ -8,7 +8,7 @@ private String modelo;
 private String tipoconector;
 private String tipomemram;
 private ArrayList<String>misconexiones;
-public TarjetaMadre(float precio, int cantdispo, int numserie, int cantmin, String marca, String modelo,
+public TarjetaMadre(float precio, int cantdispo, String numserie, int cantmin, String marca, String modelo,
 		String tipoconector, String tipomemram, ArrayList<String> misconexiones) {
 	super(precio, cantdispo, numserie, cantmin);
 	this.marca = marca;

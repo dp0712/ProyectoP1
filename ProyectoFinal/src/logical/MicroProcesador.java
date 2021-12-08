@@ -5,7 +5,7 @@ private String marca;
 private String modelo;
 private String tipoconector;
 private float veloprocesamiento;
-public MicroProcesador(float precio, int cantdispo, int numserie, int cantmin, String marca, String modelo,
+public MicroProcesador(float precio, int cantdispo, String numserie, int cantmin, String marca, String modelo,
 		String tipoconector, float veloprocesamiento) {
 	super(precio, cantdispo, numserie, cantmin);
 	this.marca = marca;
