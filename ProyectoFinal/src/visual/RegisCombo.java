@@ -204,7 +204,7 @@ public class RegisCombo extends JDialog {
 					if(cont>=2) {
 						registrarButton.setEnabled(true);
 					}else {
-						registrarButton.setEnabled(false);
+						registrarButton.setEnabled(true);
 					}
 					q = null;
 					
@@ -248,7 +248,7 @@ public class RegisCombo extends JDialog {
 					if(cont>=2) {
 						registrarButton.setEnabled(true);
 					}else {
-						registrarButton.setEnabled(false);
+						registrarButton.setEnabled(true);
 					}
 					q = null;
 				}
@@ -406,7 +406,7 @@ public class RegisCombo extends JDialog {
 				registrarButton = new JButton("Registrar");
 				registrarButton.setBackground(UIManager.getColor("Button.focus"));
 				registrarButton.setForeground(Color.BLACK);
-				registrarButton.setEnabled(false);
+				registrarButton.setEnabled(true);
 				registrarButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(!txtNombre.getText().isEmpty()) {
@@ -417,7 +417,7 @@ public class RegisCombo extends JDialog {
 						}
 						Empresa.getInstance().addcombo(aux);;
 						clear();
-						registrarButton.setEnabled(false);
+						registrarButton.setEnabled(true);
 						//saber = new int[4];
 						contador  =0;
 						JOptionPane.showMessageDialog(null, "El combo ha sido registrado exitosamente");
