@@ -36,11 +36,15 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
 import javax.swing.event.MenuListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.JLabel;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
 
 public class Principal extends JFrame {
 
@@ -276,7 +280,7 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_5.setForeground(Color.DARK_GRAY);
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AgregarCombo aux = new AgregarCombo();
+				RegisCombo aux = new RegisCombo();
 				aux.setVisible(true);
 			}
 		});
@@ -330,11 +334,20 @@ public class Principal extends JFrame {
 		
 		panel_3 = new JPanel();
 		panel_3.setBorder(new EmptyBorder(5, 5, 5, 5));
-		panel_3.setLayout(new BorderLayout(0, 0));
 		contentPane.add(panel_3);
+		panel_3.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel_3.add(lblNewLabel, BorderLayout.SOUTH);
+		JLabel lblNewLabel = new JLabel("mainlabel");
+		ImageIcon imagen =new ImageIcon(getClass().getResource("/Imagenes/equipos-de-computo-para-personas-de-escasos-recursos.jpg"));
+		Icon icono= new ImageIcon(imagen.getImage().getScaledInstance((int)939,(int)900,Image.SCALE_DEFAULT));
+		lblNewLabel.setIcon(icono);
+		lblNewLabel.setBounds(169, 11, 942, 372);
+		panel_3.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Bienvenido a su Empresa!!");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblNewLabel_1.setBounds(473, 438, 604, 118);
+		panel_3.add(lblNewLabel_1);
 		setLocationRelativeTo(null);
 		
 		cargargraficos();
@@ -361,7 +374,5 @@ public class Principal extends JFrame {
 		panel_3.doLayout();
 
 	}
-	
-
 }
 
