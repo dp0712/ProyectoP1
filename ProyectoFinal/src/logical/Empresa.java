@@ -2,9 +2,7 @@ package logical;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
-import visual.Principal;
 
 
 public class Empresa implements Serializable{
@@ -147,31 +145,31 @@ public class Empresa implements Serializable{
 		}
 		
 	}
-	/*
+	
 	public void retornarelcombo(Combos c) {
 		for(Componente a : c.getMiscomponentes() ) {
 			a.setCantdispo(a.getCantdispo()+1);
 			
-			if( a instanceof DiscoDuroDuro) {
-				setTotDiscoDuro(getTotDiscoDuro()-1);
+			if( a instanceof DiscoDuro) {
+				setCantidadDiscoDuro(getCantidadDiscoDuro()-1);
 			}
 			
 			if( a instanceof TarjetaMadre) {
-				setTotTarjetaMadre(getTotTarjetaMadre()-1);
+				setCantidadtarjetam(getCantidadtarjetam()-1);
 			}
-			if( a instanceof Microprocesadores) {
-				setTotMicroprocesadores(getTotMicroprocesadores()-1);
+			if( a instanceof MicroProcesador) {
+				setCantidadmicro(getCantidadmicro()-1);
 			}
 			
 			if( a instanceof MemoriaRam) {
-				setTotMemoriaRam(getTotMemoriaRam()-1);
+				setCantidadmemram(getCantidadmemram()-1);
 			}
 			
 		}
 		
 		
 	}
-	*/
+	
 	public int getCodifact() {
 		return codifact;
 	}
