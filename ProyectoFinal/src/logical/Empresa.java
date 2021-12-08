@@ -205,7 +205,7 @@ public class Empresa implements Serializable{
 		int i = 0;
 		boolean encontrado=false;
 		while (i<miscomponentes.size() && !encontrado) {
-			if(miscomponentes.get(i).getNumserie()){
+			if(miscomponentes.get(i).getNumserie() != null){
 				encontrado = true;
 				componente = miscomponentes.get(i);
 			}
