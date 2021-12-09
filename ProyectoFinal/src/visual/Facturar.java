@@ -262,7 +262,7 @@ public class Facturar extends JDialog {
 			panel_1.add(scrollPane, BorderLayout.WEST);
 			
 			modelo = new DefaultTableModel();
-			String[] columns = {"Codigo","Articulo","Cantidad","Precio","Importe"}; 
+			String[] columns = {"Modelo","Articulo","Cantidad","Precio","Importe"}; 
 			modelo.setColumnIdentifiers(columns);
 			table = new JTable();
 			if(auxiliar!=null) {

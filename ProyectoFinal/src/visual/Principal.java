@@ -214,7 +214,9 @@ public class Principal extends JFrame {
 		mntmNewMenuItem_2.setBackground(UIManager.getColor("Button.focus"));
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListadodeFacturas aux = new ListadodeFacturas();
+				ListadodeFacturas aux=null;
+				 aux = new ListadodeFacturas(aux);
+			
 				aux.setVisible(true);
 			}
 		});

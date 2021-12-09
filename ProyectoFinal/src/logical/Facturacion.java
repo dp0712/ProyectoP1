@@ -84,6 +84,8 @@ public class Facturacion {
 	}
 	public void agregarcomponente(Componente c) {
 		miscomponentes.add(c);
+		setCodigo(getCodigo()+1);
+
 	}
 
 

@@ -110,18 +110,18 @@ public class ListadodeComponentes extends JDialog {
 			JPanel panel = new JPanel();
 			panel.setForeground(Color.DARK_GRAY);
 			panel.setBackground(Color.DARK_GRAY);
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Listado de Clientes", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Listado de Componentes", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
+			
+			modelo = new DefaultTableModel();
+			String columns[] = {"Modelo","Tipo","Cant. en almacen","Precio Unitario","Num Serie","Marca"};
+			modelo.setColumnIdentifiers(columns);
 			
 			JScrollPane scrollPane = new JScrollPane();
 			scrollPane.setBounds(6, 47, 808, 314);
 			scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			panel.add(scrollPane);
-			
-			modelo = new DefaultTableModel();
-			String columns[] = {"Modelo","Tipo","Cant. en almacen","Precio Unitario","Num Serie","Marca"};
-			modelo.setColumnIdentifiers(columns);
 			table = new JTable();
 			table.addMouseListener(new MouseAdapter() {
 				@Override

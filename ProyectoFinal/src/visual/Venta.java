@@ -73,24 +73,19 @@ public class Venta extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Nombre:");
-			lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
-			lblNewLabel.setForeground(Color.WHITE);
-			lblNewLabel.setBounds(12, 13, 59, 31);
-			contentPanel.add(lblNewLabel);
-		}
-		{
 			JLabel lblNewLabel_2 = new JLabel("Precio:");
+			lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
 			lblNewLabel_2.setBackground(UIManager.getColor("Button.focus"));
 			lblNewLabel_2.setForeground(Color.WHITE);
-			lblNewLabel_2.setBounds(12, 101, 73, 16);
+			lblNewLabel_2.setBounds(133, 23, 101, 45);
 			contentPanel.add(lblNewLabel_2);
 		}
 		{
 			lblPrecio = new JLabel(""+precio);
+			lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 24));
 			lblPrecio.setForeground(Color.WHITE);
 			lblPrecio.setBackground(UIManager.getColor("Button.focus"));
-			lblPrecio.setBounds(12, 130, 346, 31);
+			lblPrecio.setBounds(26, 79, 346, 31);
 			contentPanel.add(lblPrecio);
 		}
 		{

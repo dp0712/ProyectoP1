@@ -62,10 +62,9 @@ public class ListadodeFacturas extends JDialog {
 	 * Create the dialog.
 	 * @param aux 
 	 */
-	public ListadodeFacturas(Vendedor aux) {
+	public ListadodeFacturas(ListadodeFacturas aux) {
 		setForeground(new Color(0, 100, 0));
 		setBackground(UIManager.getColor("Button.focus"));
-		this.v=aux;
 		setTitle("Listado de Facturas");
 		setModal(true);
 		setResizable(false);
@@ -80,8 +79,7 @@ public class ListadodeFacturas extends JDialog {
 		{
 			JPanel panel = new JPanel();
 			panel.setForeground(UIManager.getColor("Button.focus"));
-			panel.setBackground(UIManager.getColor("Button.focus"));
-			panel.setBorder(new LineBorder(new Color(0, 255, 0)));
+			panel.setBackground(Color.DARK_GRAY);
 			contentPanel.add(panel, BorderLayout.CENTER);
 			panel.setLayout(null);
 			{
@@ -104,7 +102,7 @@ public class ListadodeFacturas extends JDialog {
 							if(seleccion!=-1) {
 							
 								informacionButton.setEnabled(true);
-								auxiliar = Empresa.getInstance().buscarFactura((String)modelo.getValueAt(modelrow, 0));
+								auxiliar = Empresa.getInstance().enontrarfactura((String)modelo.getValueAt(modelrow, 0));
 								
 							}else {
 								informacionButton.setEnabled(false);
@@ -119,15 +117,15 @@ public class ListadodeFacturas extends JDialog {
 			}
 			{
 				JLabel lblNewLabel = new JLabel("Buscador:");
-				lblNewLabel.setForeground(SystemColor.textHighlight);
-				lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
+				lblNewLabel.setForeground(Color.WHITE);
+				lblNewLabel.setBackground(Color.DARK_GRAY);
 				lblNewLabel.setBounds(10, 14, 93, 14);
 				panel.add(lblNewLabel);
 			}
 			{
 				txtFiltro = new JTextField();
-				txtFiltro.setBackground(UIManager.getColor("Button.focus"));
-				txtFiltro.setForeground(new Color(128, 0, 0));
+				txtFiltro.setBackground(Color.WHITE);
+				txtFiltro.setForeground(Color.BLACK);
 				txtFiltro.addKeyListener(new KeyAdapter() {
 					@Override
 					public void keyPressed(KeyEvent arg0) {
@@ -143,7 +141,7 @@ public class ListadodeFacturas extends JDialog {
 			}
 			
 			JLabel lblNewLabel_1 = new JLabel("Filtro:");
-			lblNewLabel_1.setForeground(Color.BLUE);
+			lblNewLabel_1.setForeground(Color.WHITE);
 			lblNewLabel_1.setBounds(378, 13, 56, 16);
 			panel.add(lblNewLabel_1);
 			
@@ -160,18 +158,17 @@ public class ListadodeFacturas extends JDialog {
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBorder(new LineBorder(new Color(184, 134, 11)));
-			buttonPane.setBackground(UIManager.getColor("Button.focus"));
+			buttonPane.setBackground(Color.DARK_GRAY);
 			buttonPane.setForeground(UIManager.getColor("Button.focus"));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				informacionButton = new JButton("Informacion");
-				informacionButton.setForeground(new Color(0, 0, 205));
+				informacionButton.setForeground(Color.BLACK);
 				informacionButton.setBackground(UIManager.getColor("Button.focus"));
 				informacionButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Facturacion a = new Facturacion(auxiliar);
+						Facturar a = new Facturar(auxiliar);
 						a.setVisible(true);
 						
 					}
@@ -184,7 +181,7 @@ public class ListadodeFacturas extends JDialog {
 			{
 				JButton cancelButton = new JButton("Cancelar");
 				cancelButton.setBackground(UIManager.getColor("Button.focus"));
-				cancelButton.setForeground(new Color(102, 0, 0));
+				cancelButton.setForeground(Color.BLACK);
 				cancelButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						dispose();
@@ -199,138 +196,69 @@ public class ListadodeFacturas extends JDialog {
 
 	private void cargarTabla() {
 		
-		if(v==null) {
-			switch(cbxFiltro.getSelectedIndex()) {
-			case 0:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				break;
-			case 1:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(!fact.isEstado()) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				}
-				break;
-			case 2:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(fact.isEstado() && !fact.vencida() ) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				}
-				break;
-			case 3:
-				
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(fact.isEstado() && fact.vencida() ) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				}
-				break;
-				
-		}
-		
-		}else {
+		Object aux=null;
+		switch(cbxFiltro.getSelectedIndex()) {
+		case 0:
+			modelo.setRowCount(0); 
+			fila = new Object [modelo.getColumnCount()];
 			
-			switch(cbxFiltro.getSelectedIndex()) {
-			case 0:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
+			for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
 				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(fact.getVendedor().equals(v)) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-					}
-				break;
-			case 1:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(!fact.isEstado() && fact.getVendedor().equals(v)) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
+					fila[0] = fact.getCodigo();
+					fila[1] = fact.getCliente().getNombre();
+					fila[2] = fact.getVendedor().getNombre();
+					fila[3] = fact.getPrecioTotal();
+				//	fila[5] = fact.getComponentes().size()+fact.getCombo().size();
+					modelo.addRow(fila);
 				}
-				break;
-			case 2:
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
-					if(fact.isEstado() && !fact.vencida() && fact.getVendedor().equals(v) ) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				}
-				break;
-			case 3:
-				
-				modelo.setRowCount(0); 
-				fila = new Object [modelo.getColumnCount()];
-				
-				for(Facturacion fact : Empresa.getInstance().getMisfacturas() ){
-					if(fact.isEstado() && fact.vencida() && fact.getVendedor().equals(v)) {
-						fila[0] = fact.getCodigo();
-						fila[1] = fact.getCliente().getNombre();
-						fila[2] = fact.getVendedor().getNombre();
-						fila[3] = fact.getPrecioTotal();
-						fila[5] = fact.getComponentes().size()+fact.getCombo().size();
-						modelo.addRow(fila);
-					}
-				}
-				break;
-				
-		}
+			break;
+		case 1:
+			modelo.setRowCount(0); 
+			fila = new Object [modelo.getColumnCount()];
 			
-		}
+			for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
+			
+					fila[0] = fact.getCodigo();
+					fila[1] = fact.getCliente().getNombre();
+					fila[2] = fact.getVendedor().getNombre();
+					fila[3] = fact.getPrecioTotal();
+				//	fila[5] = fact.getComponentes().size()+fact.getCombo().size();
+					modelo.addRow(fila);
+				
+			}
+			break;
+		case 2:
+			modelo.setRowCount(0); 
+			fila = new Object [modelo.getColumnCount()];
+			
+			for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
+			
+					fila[0] = fact.getCodigo();
+					fila[1] = fact.getCliente().getNombre();
+					fila[2] = fact.getVendedor().getNombre();
+					fila[3] = fact.getPrecioTotal();
+				//	fila[5] = fact.getComponentes().size()+fact.getCombo().size();
+					modelo.addRow(fila);
+				
+			}
+			break;
+		case 3:
+			
+			modelo.setRowCount(0); 
+			fila = new Object [modelo.getColumnCount()];
+			
+			for(Facturacion fact : Empresa.getInstance().getMisfacturas()){
+			
+					fila[0] = fact.getCodigo();
+					fila[1] = fact.getCliente().getNombre();
+					fila[2] = fact.getVendedor().getNombre();
+					fila[3] = fact.getPrecioTotal();
+				//	fila[5] = fact.getComponentes().size()+fact.getCombo().size();
+					modelo.addRow(fila);
+				
+			}
+			break;
+			
+}
 	}
 }

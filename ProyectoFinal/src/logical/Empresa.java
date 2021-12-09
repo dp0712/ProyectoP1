@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 
 
+
+
 public class Empresa implements Serializable{
 
 	
@@ -343,6 +345,20 @@ public class Empresa implements Serializable{
 		Empresa.empresa = empresa;
 	}
 
+	public Facturacion enontrarfactura(String codigo) {
+		Facturacion factura = null;
+		int i = 0;
+		boolean encontrado = false;
+		while (i<misfacturas.size() && !encontrado) {
+			if(misfacturas.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+				encontrado = true;
+				factura = misfacturas.get(i);
+			}
+			i++;
+		}
+		return factura;
+
+	}
 
 
 }
