@@ -15,7 +15,7 @@ public class Facturacion {
 	private boolean pagado;
 	private Object[][]filas;
 	private int cant;
-	public Facturacion(String codigo, float precioTotal, Usuario vendedor, 
+	public Facturacion(String codigo, float precioTotal, 
 			 Cliente cliente, boolean pagado) {
 		super();
 		this.codigo = codigo;

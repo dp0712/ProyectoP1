@@ -3,6 +3,8 @@ package logical;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import logico.Proveedor;
+
 
 
 
@@ -358,6 +360,19 @@ public class Empresa implements Serializable{
 		}
 		return factura;
 
+	}
+	public Proveedor buscarProveedor(String valueAt) {
+		int i = 0;
+		boolean encontrado = false;
+		Proveedor p = null;
+		while(i<proveedores.size() && !encontrado) {
+			if(proveedores.get(i).getCodigo().equalsIgnoreCase(valueAt)) {
+				p = proveedores.get(i);
+				encontrado = true;
+			}
+			i++;
+		}
+		return p;
 	}
 
 

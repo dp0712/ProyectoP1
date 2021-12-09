@@ -418,9 +418,11 @@ public class Facturar extends JDialog {
 						if(cliente !=null && ok==JOptionPane.OK_OPTION) {
 							float pago = Float.parseFloat(JOptionPane.showInputDialog("Digite el monto del pago"));
 							if(pago>=(subtotal+(subtotal*0.18f))) {
-								Facturacion f = new Facturacion("F-"+Empresa.getInstance().getCodifact(), subtotal+(subtotal*0.18f),null, null, rootPaneCheckingEnabled);
-										//("F-"+Empresa.getInstance().getCodifact(), subtotal+(subtotal*0.18f), cliente, false,modelo.getRowCount());
-								
+								String codigo = lblCodigo.getText();
+								float precioTotal=0;
+								boolean pagado=true;
+								Facturacion f = new Facturacion(codigo, precioTotal, cliente, pagado);
+							//	("F-"+Empresa.getInstance().getCodifact(), subtotal+(subtotal*0.18f),c, true, rootPaneCheckingEnabled);
 								for(int i= 0;i<modelo.getRowCount();i++) {
 									fila[0]=modelo.getValueAt(i, 0).toString();
 									fila[1]=modelo.getValueAt(i, 1).toString();

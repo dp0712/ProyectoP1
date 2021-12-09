@@ -132,7 +132,6 @@ public class ListadodeComponentes extends JDialog {
 						if(seleccion!=-1 && (int)modelo.getValueAt(modelrow, 2)>0) {
 							btnSeleccionar.setEnabled(true);
 							if('C'==((String)modelo.getValueAt(modelrow, 0)).charAt(0)) {
-								btnInformacion.setEnabled(true);
 								c = Empresa.getInstance().buscarelcombo((String)modelo.getValueAt(modelrow, 0));
 							}
 						}
