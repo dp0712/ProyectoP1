@@ -107,7 +107,7 @@ public class RegisCombo extends JDialog {
 			panel_1.add(scrollPane, BorderLayout.CENTER);
 			
 			modelo = new DefaultTableModel();
-			String columns[] = {"Serie","Marca","Modelo","Precio"};
+			String columns[] = {"Modelo","Marca","Serie","Precio"};
 			modelo.setColumnIdentifiers(columns);
 			table = new JTable();
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -147,7 +147,7 @@ public class RegisCombo extends JDialog {
 			panel_2.add(scrollPane_1, BorderLayout.CENTER);
 			
 			modelo_1 = new DefaultTableModel();
-			String []columns2 = {"Serie","Marca","Modelo","Precio"};
+			String []columns2 = {"Modelo","Marca","Serie","Precio"};
 			modelo_1.setColumnIdentifiers(columns2);
 			table_1 = new JTable();
 			table_1.addMouseListener(new MouseAdapter() {
@@ -199,7 +199,7 @@ public class RegisCombo extends JDialog {
 					}
 					*/
 					CargarTablaAgregados();
-					//cargarTablaExceptuando();
+				
 					btnAgregar.setEnabled(false);
 					if(cont>=2) {
 						registrarButton.setEnabled(true);
@@ -285,8 +285,9 @@ public class RegisCombo extends JDialog {
 							
 							if(comp instanceof DiscoDuro) {
 							
-								fila[0] = comp.getNumserie();	
-						
+								fila[0] = ((DiscoDuro) comp).getModelo();	
+								fila[1] = ((DiscoDuro) comp).getMarca();
+								fila[2] = comp.getNumserie();
 								fila[3] = comp.getPrecio();
 							
 							modelo.addRow(fila);
