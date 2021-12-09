@@ -44,6 +44,7 @@ public class Venta extends JDialog {
 	public static Object[] fila = new Object [5];
 	private JLabel lblPrecio;
 	private JLabel lblSubTotal;
+	public static float ventaproduc;
 	/**
 	 * Launch the application.
 	 */
@@ -172,7 +173,7 @@ public class Venta extends JDialog {
 								dispose();
 								Facturar.CargarTabla(fila);
 							}else {
-								JOptionPane.showMessageDialog(null, "No hay suficientes componentes para vender este combo "+c.getNombre()
+								JOptionPane.showMessageDialog(null, "No hay suficientes componentes para vender  "+c.getNombre()
 							, "Error", JOptionPane.WARNING_MESSAGE);
 								dispose();
 								ListadodeComponentes a = new ListadodeComponentes();

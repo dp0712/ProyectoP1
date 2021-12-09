@@ -135,15 +135,12 @@ public class ListadodeComponentes extends JDialog {
 								btnInformacion.setEnabled(true);
 								c = Empresa.getInstance().buscarelcombo((String)modelo.getValueAt(modelrow, 0));
 							}else {
-								btnInformacion.setEnabled(false);
+			
 							}
-						}else {
-							btnInformacion.setEnabled(false);
-							btnSeleccionar.setEnabled(false);
 						}
 					}else {
 						btnSeleccionar.setEnabled(false);
-						btnInformacion.setEnabled(false);
+			
 					}
 				}
 			});
@@ -217,11 +214,11 @@ public class ListadodeComponentes extends JDialog {
 				btnSeleccionar = new JButton("Seleccionar");
 				btnSeleccionar.setBackground(UIManager.getColor("Button.focus"));
 				btnSeleccionar.setForeground(Color.BLACK);
-				btnSeleccionar.setEnabled(false);
+				btnSeleccionar.setEnabled(true);
 				if(mode==0) {
 					btnSeleccionar.setVisible(true);
 				}else {
-					btnSeleccionar.setVisible(false);
+					btnSeleccionar.setVisible(true);
 				}
 				
 				btnSeleccionar.addActionListener(new ActionListener() {
@@ -233,25 +230,16 @@ public class ListadodeComponentes extends JDialog {
 							a.setVisible(true);
 						}else {
 							Componente c = Empresa.getInstance().buscarelomponente((String)modelo.getValueAt(modelrow, 0));
-						/*	Venta a = new Venta(c.getNumserie()+c.getModelo(),c.getPrecio(),c.getCantdispo());
+							Venta a = new Venta(c.getNumserie(),c.getPrecio(),c.getCantdispo());
 							dispose();
 							a.setVisible(true);
-							*/
+							
 						}
 					}
 				});
 				
-				btnInformacion = new JButton("Informacion");
-				btnInformacion.setForeground(Color.BLACK);
-				btnInformacion.setBackground(UIManager.getColor("Button.focus"));
-				btnInformacion.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						ListadodeComponentes a = new ListadodeComponentes();
-						a.setVisible(true);
-					}
-				});
-				btnInformacion.setEnabled(false);
-				buttonPane.add(btnInformacion);
+				
+			
 				buttonPane.add(btnSeleccionar);
 			}
 			{
@@ -281,11 +269,9 @@ public class ListadodeComponentes extends JDialog {
 
 	private void botones(int mode2) {
 		if(mode2!=5) {
-			btnSeleccionar.setVisible(false);
-			btnInformacion.setVisible(true);
+			btnSeleccionar.setVisible(true);
 		}else {
 			btnSeleccionar.setVisible(true);
-			btnInformacion.setVisible(false);
 		}
 		
 	}
