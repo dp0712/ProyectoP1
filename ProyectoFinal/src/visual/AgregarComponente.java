@@ -42,6 +42,7 @@ import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
 
 public class AgregarComponente extends JDialog {
 
@@ -99,6 +100,9 @@ public class AgregarComponente extends JDialog {
 	private JLabel lblTipoCompo;
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
+	private JTextField txtPrecioMadre;
+	private JTextPane txtPrecioMicro;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -262,275 +266,15 @@ public class AgregarComponente extends JDialog {
 		txtPrecio.setBounds(649, 35, 66, 20);
 		panel_DiscoDuro.add(txtPrecio);
 		
-		panel_Microprocesadores = new JPanel();
-		panel_Microprocesadores.setBackground(Color.BLACK);
-		panel_Microprocesadores.setForeground(Color.DARK_GRAY);
-		panel_Microprocesadores.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional:", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
-		panel_Microprocesadores.setBounds(10, 207, 753, 261);
-		contentPanel.add(panel_Microprocesadores);
-		panel_Microprocesadores.setLayout(null);
-		
-		lblTipoDeconexion_Microprocesadores = new JLabel("Tipo de conexion o socket:");
-		lblTipoDeconexion_Microprocesadores.setForeground(new Color(250, 250, 210));
-		lblTipoDeconexion_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		lblTipoDeconexion_Microprocesadores.setBounds(10, 58, 207, 14);
-		lblTipoDeconexion_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(lblTipoDeconexion_Microprocesadores);
-		
-		lblVelocidad_Microprocesadores = new JLabel("Velocidad:");
-		lblVelocidad_Microprocesadores.setForeground(new Color(250, 250, 210));
-		lblVelocidad_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		lblVelocidad_Microprocesadores.setBounds(10, 135, 207, 14);
-		lblVelocidad_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(lblVelocidad_Microprocesadores);
-		
-		lblTipo_Microprocesadores = new JLabel("Tipo de procesamiento:");
-		lblTipo_Microprocesadores.setForeground(new Color(250, 250, 210));
-		lblTipo_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		lblTipo_Microprocesadores.setBounds(10, 201, 207, 14);
-		lblTipo_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(lblTipo_Microprocesadores);
-		
-		txtTipoDeConexion_Microprocesadores = new JTextField();
-		txtTipoDeConexion_Microprocesadores.setForeground(new Color(0, 0, 255));
-		txtTipoDeConexion_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		txtTipoDeConexion_Microprocesadores.setBounds(191, 55, 199, 20);
-		txtTipoDeConexion_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(txtTipoDeConexion_Microprocesadores);
-		txtTipoDeConexion_Microprocesadores.setColumns(10);
-		
-		spnVelocidad_Microprocesadores = new JSpinner();
-		spnVelocidad_Microprocesadores.setForeground(new Color(0, 0, 255));
-		spnVelocidad_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		spnVelocidad_Microprocesadores.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-		spnVelocidad_Microprocesadores.setBounds(191, 132, 199, 20);
-		spnVelocidad_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(spnVelocidad_Microprocesadores);
-		
-		cbxTipo_Microprocesadores = new JComboBox();
-		cbxTipo_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
-		cbxTipo_Microprocesadores.setForeground(new Color(0, 0, 255));
-		cbxTipo_Microprocesadores.setModel(new DefaultComboBoxModel(new String[] {"MHz", "GHz"}));
-		cbxTipo_Microprocesadores.setBounds(191, 198, 199, 20);
-		cbxTipo_Microprocesadores.setVisible(false);
-		panel_Microprocesadores.add(cbxTipo_Microprocesadores);
-		
-		panel_TarjetaMadre = new JPanel();
-		panel_TarjetaMadre.setForeground(Color.DARK_GRAY);
-		panel_TarjetaMadre.setBackground(Color.BLACK);
-		panel_TarjetaMadre.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
-		panel_TarjetaMadre.setBounds(10, 207, 753, 261);
-		contentPanel.add(panel_TarjetaMadre);
-		panel_TarjetaMadre.setLayout(null);
-		
-		lblConector_TarjetaMadre = new JLabel("Conexion:");
-		lblConector_TarjetaMadre.setForeground(new Color(250, 250, 210));
-		lblConector_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
-		lblConector_TarjetaMadre.setBounds(10, 49, 113, 14);
-		lblConector_TarjetaMadre.setVisible(true);
-		panel_TarjetaMadre.add(lblConector_TarjetaMadre);
-		
-		lblTipoRam_TarjetaMadre = new JLabel("TipoRam:");
-		lblTipoRam_TarjetaMadre.setForeground(new Color(250, 250, 210));
-		lblTipoRam_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
-		lblTipoRam_TarjetaMadre.setBounds(10, 112, 113, 14);
-		panel_TarjetaMadre.add(lblTipoRam_TarjetaMadre);
-		
-		txtConexion_TarjetaMadre = new JTextField();
-		txtConexion_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
-		txtConexion_TarjetaMadre.setForeground(new Color(0, 0, 255));
-		txtConexion_TarjetaMadre.setBounds(87, 46, 125, 20);
-		txtConexion_TarjetaMadre.setVisible(false);
-		panel_TarjetaMadre.add(txtConexion_TarjetaMadre);
-		txtConexion_TarjetaMadre.setColumns(10);
-		
-		txtTipoRam_TarjetaMadre = new JTextField();
-		txtTipoRam_TarjetaMadre.setForeground(new Color(0, 0, 255));
-		txtTipoRam_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
-		txtTipoRam_TarjetaMadre.setColumns(10);
-		txtTipoRam_TarjetaMadre.setBounds(87, 109, 125, 20);
-		txtTipoRam_TarjetaMadre.setVisible(false);
-		panel_TarjetaMadre.add(txtTipoRam_TarjetaMadre);
-		
-		btnAgregar = new JButton("Add");
-		btnAgregar.setSelectedIcon(null);
-		btnAgregar.setBackground(UIManager.getColor("Button.focus"));
-		btnAgregar.setForeground(UIManager.getColor("Button.focus"));
-		btnAgregar.setEnabled(false);
-		btnAgregar.setVisible(false);
-		btnAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cont++;
-				conexiones.remove(q);
-				agregados.add(q);
-				CargarTabla();
-				CargarTablaAgregados();
-				btnAgregar.setEnabled(false);
-				if(cont>0) {
-					okButton.setEnabled(true);
-				}else {
-					okButton.setEnabled(false);
-				}
-				
-			}
-		});
-		btnAgregar.setBounds(445, 66, 80, 25);
-		panel_TarjetaMadre.add(btnAgregar);
-		
-		btnQuitar = new JButton("Del");
-		btnQuitar.setForeground(UIManager.getColor("Button.focus"));
-		btnQuitar.setBackground(UIManager.getColor("Button.focus"));
-		btnQuitar.setEnabled(false);
-		btnQuitar.setVisible(false);
-		btnQuitar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cont--;
-				conexiones.add(q);
-				agregados.remove(q);
-				CargarTabla();
-				CargarTablaAgregados();
-				btnQuitar.setEnabled(false);
-				if(cont>0) {
-					okButton.setEnabled(true);
-				}else {
-					okButton.setEnabled(false);
-				}
-				
-			}
-		});
-		btnQuitar.setBounds(445, 175, 80, 25);
-		panel_TarjetaMadre.add(btnQuitar);
-		
-		panel_Disponibles = new JPanel();
-		panel_Disponibles.setForeground(Color.DARK_GRAY);
-		panel_Disponibles.setBackground(UIManager.getColor("Button.focus"));
-		panel_Disponibles.setBounds(227, 37, 192, 211);
-		panel_Disponibles.setVisible(false);
-		panel_TarjetaMadre.add(panel_Disponibles);
-		panel_Disponibles.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		panel_Disponibles.add(scrollPane_1, BorderLayout.CENTER);
-		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		
 		modelo = new DefaultTableModel();
 		String array[]={"TypeC","USB","Jack 3.5 mm","SATA","PCIe","I/O","HDMI","Ethernet","VGA","Micro-SD","SD"};
 		conexiones =new ArrayList<String>( Arrays.asList(array));
 		String []columns = {"Nombre"};
 		modelo.setColumnIdentifiers(columns);
 		
-		table = new JTable();
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				table_1.clearSelection();
-				int seleccion = table.getSelectedRow();
-				int modelrow = table.convertRowIndexToModel(seleccion);
-				if(seleccion!=-1){
-					btnAgregar.setEnabled(true);
-					btnQuitar.setEnabled(false);
-					q = conexiones.get(seleccion);
-				}else{
-					btnAgregar.setEnabled(false);
-					btnQuitar.setEnabled(false);
-					q = null;
-				}
-			}
-		});
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(modelo);
-		scrollPane_1.setViewportView(table);
-		
-		panel_Agregados = new JPanel();
-		panel_Agregados.setForeground(Color.DARK_GRAY);
-		panel_Agregados.setBackground(UIManager.getColor("Button.focus"));
-		panel_Agregados.setBounds(549, 37, 192, 211);
-		panel_Agregados.setVisible(false);
-		panel_TarjetaMadre.add(panel_Agregados);
-		panel_Agregados.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_Agregados.add(scrollPane, BorderLayout.CENTER);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		
 		modelo_1 = new DefaultTableModel();
 		String []columns2 = {"Nombre"};
 		modelo_1.setColumnIdentifiers(columns2);
-		table_1 = new JTable();
-		table_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				table.clearSelection();
-				int seleccion = table_1.getSelectedRow();
-				int modelrow = table_1.convertRowIndexToModel(seleccion);
-				if(seleccion!=-1){
-					btnAgregar.setEnabled(false);
-					btnQuitar.setEnabled(true);
-					
-					q = agregados.get(modelrow);
-				}else{
-					btnAgregar.setEnabled(false);
-					btnQuitar.setEnabled(false);
-					q = null;
-				}
-			}
-		});
-		table_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table_1.setModel(modelo_1);
-		scrollPane.setViewportView(table_1);
-		
-		panel_MemoriaRam = new JPanel();
-		panel_MemoriaRam.setForeground(UIManager.getColor("Button.focus"));
-		panel_MemoriaRam.setBackground(Color.BLACK);
-		panel_MemoriaRam.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(184, 134, 11)));
-		panel_MemoriaRam.setBounds(10, 207, 753, 261);
-		contentPanel.add(panel_MemoriaRam);
-		panel_MemoriaRam.setLayout(null);
-		
-		lblCantidadDeMemoria_MemoriaRam = new JLabel("Cantidad de memoria:");
-		lblCantidadDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		lblCantidadDeMemoria_MemoriaRam.setForeground(new Color(250, 250, 210));
-		lblCantidadDeMemoria_MemoriaRam.setBounds(10, 54, 186, 14);
-		lblCantidadDeMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(lblCantidadDeMemoria_MemoriaRam);
-		
-		lblTipoDeMemoria_MemoriaRam = new JLabel("Tipo de memoria:");
-		lblTipoDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		lblTipoDeMemoria_MemoriaRam.setForeground(new Color(250, 250, 210));
-		lblTipoDeMemoria_MemoriaRam.setBounds(10, 122, 186, 14);
-		lblTipoDeMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(lblTipoDeMemoria_MemoriaRam);
-		
-		lblMemoria_MemoriaRam = new JLabel("Memoria:");
-		lblMemoria_MemoriaRam.setForeground(new Color(250, 250, 210));
-		lblMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		lblMemoria_MemoriaRam.setBounds(10, 190, 186, 14);
-		lblMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(lblMemoria_MemoriaRam);
-		
-		spnCantidadDeMemoria_MemoriaRam = new JSpinner();
-		spnCantidadDeMemoria_MemoriaRam.setForeground(new Color(0, 0, 255));
-		spnCantidadDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		spnCantidadDeMemoria_MemoriaRam.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-		spnCantidadDeMemoria_MemoriaRam.setBounds(140, 51, 111, 20);
-		spnCantidadDeMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(spnCantidadDeMemoria_MemoriaRam);
-		
-		cbxTipoDeMemoria_MemoriaRam = new JComboBox();
-		cbxTipoDeMemoria_MemoriaRam.setForeground(new Color(0, 0, 255));
-		cbxTipoDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		cbxTipoDeMemoria_MemoriaRam.setModel(new DefaultComboBoxModel(new String[] {"DDR", "DDR-2", "DDR-3 "}));
-		cbxTipoDeMemoria_MemoriaRam.setBounds(140, 119, 111, 20);
-		cbxTipoDeMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(cbxTipoDeMemoria_MemoriaRam);
-		
-		cbxMemoria_MemoriaRam = new JComboBox();
-		cbxMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
-		cbxMemoria_MemoriaRam.setForeground(new Color(0, 0, 255));
-		cbxMemoria_MemoriaRam.setModel(new DefaultComboBoxModel(new String[] {"Gb", "Mb"}));
-		cbxMemoria_MemoriaRam.setBounds(140, 187, 111, 20);
-		cbxMemoria_MemoriaRam.setVisible(false);
-		panel_MemoriaRam.add(cbxMemoria_MemoriaRam);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setForeground(Color.DARK_GRAY);
@@ -754,6 +498,296 @@ public class AgregarComponente extends JDialog {
 		lblTipoCompo.setBounds(275, 0, 146, 14);
 		panel_1.add(lblTipoCompo);
 		
+		panel_Microprocesadores = new JPanel();
+		panel_Microprocesadores.setBackground(Color.DARK_GRAY);
+		panel_Microprocesadores.setForeground(Color.DARK_GRAY);
+		panel_Microprocesadores.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_Microprocesadores.setBounds(10, 207, 753, 261);
+		contentPanel.add(panel_Microprocesadores);
+		panel_Microprocesadores.setLayout(null);
+		
+		lblTipoDeconexion_Microprocesadores = new JLabel("Tipo de conexion o socket:");
+		lblTipoDeconexion_Microprocesadores.setForeground(Color.WHITE);
+		lblTipoDeconexion_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
+		lblTipoDeconexion_Microprocesadores.setBounds(10, 58, 207, 14);
+		lblTipoDeconexion_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(lblTipoDeconexion_Microprocesadores);
+		
+		lblVelocidad_Microprocesadores = new JLabel("Velocidad:");
+		lblVelocidad_Microprocesadores.setForeground(Color.WHITE);
+		lblVelocidad_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
+		lblVelocidad_Microprocesadores.setBounds(10, 135, 207, 14);
+		lblVelocidad_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(lblVelocidad_Microprocesadores);
+		
+		lblTipo_Microprocesadores = new JLabel("Tipo de procesamiento:");
+		lblTipo_Microprocesadores.setForeground(Color.WHITE);
+		lblTipo_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
+		lblTipo_Microprocesadores.setBounds(10, 201, 207, 14);
+		lblTipo_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(lblTipo_Microprocesadores);
+		
+		txtTipoDeConexion_Microprocesadores = new JTextField();
+		txtTipoDeConexion_Microprocesadores.setForeground(Color.BLACK);
+		txtTipoDeConexion_Microprocesadores.setBackground(Color.WHITE);
+		txtTipoDeConexion_Microprocesadores.setBounds(191, 55, 199, 20);
+		txtTipoDeConexion_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(txtTipoDeConexion_Microprocesadores);
+		txtTipoDeConexion_Microprocesadores.setColumns(10);
+		
+		spnVelocidad_Microprocesadores = new JSpinner();
+		spnVelocidad_Microprocesadores.setForeground(new Color(0, 0, 255));
+		spnVelocidad_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
+		spnVelocidad_Microprocesadores.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
+		spnVelocidad_Microprocesadores.setBounds(191, 132, 199, 20);
+		spnVelocidad_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(spnVelocidad_Microprocesadores);
+		
+		cbxTipo_Microprocesadores = new JComboBox();
+		cbxTipo_Microprocesadores.setBackground(UIManager.getColor("Button.focus"));
+		cbxTipo_Microprocesadores.setForeground(Color.BLACK);
+		cbxTipo_Microprocesadores.setModel(new DefaultComboBoxModel(new String[] {"MHz", "GHz"}));
+		cbxTipo_Microprocesadores.setBounds(191, 198, 199, 20);
+		cbxTipo_Microprocesadores.setVisible(false);
+		panel_Microprocesadores.add(cbxTipo_Microprocesadores);
+		
+		txtPrecioMicro = new JTextPane();
+		txtPrecioMicro.setBounds(682, 11, 61, 20);
+		panel_Microprocesadores.add(txtPrecioMicro);
+		
+		lblNewLabel_2 = new JLabel("Precio:");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setBounds(613, 11, 46, 14);
+		panel_Microprocesadores.add(lblNewLabel_2);
+		
+		panel_MemoriaRam = new JPanel();
+		panel_MemoriaRam.setForeground(UIManager.getColor("Button.focus"));
+		panel_MemoriaRam.setBackground(Color.DARK_GRAY);
+		panel_MemoriaRam.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_MemoriaRam.setBounds(10, 207, 753, 261);
+		contentPanel.add(panel_MemoriaRam);
+		panel_MemoriaRam.setLayout(null);
+		
+		lblCantidadDeMemoria_MemoriaRam = new JLabel("Cantidad de memoria:");
+		lblCantidadDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		lblCantidadDeMemoria_MemoriaRam.setForeground(Color.WHITE);
+		lblCantidadDeMemoria_MemoriaRam.setBounds(10, 54, 186, 14);
+		lblCantidadDeMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(lblCantidadDeMemoria_MemoriaRam);
+		
+		lblTipoDeMemoria_MemoriaRam = new JLabel("Tipo de memoria:");
+		lblTipoDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		lblTipoDeMemoria_MemoriaRam.setForeground(Color.WHITE);
+		lblTipoDeMemoria_MemoriaRam.setBounds(10, 122, 186, 14);
+		lblTipoDeMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(lblTipoDeMemoria_MemoriaRam);
+		
+		lblMemoria_MemoriaRam = new JLabel("Memoria:");
+		lblMemoria_MemoriaRam.setForeground(Color.WHITE);
+		lblMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		lblMemoria_MemoriaRam.setBounds(10, 190, 186, 14);
+		lblMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(lblMemoria_MemoriaRam);
+		
+		spnCantidadDeMemoria_MemoriaRam = new JSpinner();
+		spnCantidadDeMemoria_MemoriaRam.setForeground(new Color(0, 0, 255));
+		spnCantidadDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		spnCantidadDeMemoria_MemoriaRam.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
+		spnCantidadDeMemoria_MemoriaRam.setBounds(140, 51, 111, 20);
+		spnCantidadDeMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(spnCantidadDeMemoria_MemoriaRam);
+		
+		cbxTipoDeMemoria_MemoriaRam = new JComboBox();
+		cbxTipoDeMemoria_MemoriaRam.setForeground(Color.BLACK);
+		cbxTipoDeMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		cbxTipoDeMemoria_MemoriaRam.setModel(new DefaultComboBoxModel(new String[] {"DDR", "DDR-2", "DDR-3 "}));
+		cbxTipoDeMemoria_MemoriaRam.setBounds(140, 119, 111, 20);
+		cbxTipoDeMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(cbxTipoDeMemoria_MemoriaRam);
+		
+		cbxMemoria_MemoriaRam = new JComboBox();
+		cbxMemoria_MemoriaRam.setBackground(UIManager.getColor("Button.focus"));
+		cbxMemoria_MemoriaRam.setForeground(Color.BLACK);
+		cbxMemoria_MemoriaRam.setModel(new DefaultComboBoxModel(new String[] {"Gb", "Mb"}));
+		cbxMemoria_MemoriaRam.setBounds(140, 187, 111, 20);
+		cbxMemoria_MemoriaRam.setVisible(false);
+		panel_MemoriaRam.add(cbxMemoria_MemoriaRam);
+		
+		JTextPane txtPrecioMemram = new JTextPane();
+		txtPrecioMemram.setBounds(678, 11, 65, 20);
+		panel_MemoriaRam.add(txtPrecioMemram);
+		
+		JLabel lblNewLabel_1 = new JLabel("Precio:");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBounds(622, 11, 46, 14);
+		panel_MemoriaRam.add(lblNewLabel_1);
+		
+		panel_TarjetaMadre = new JPanel();
+		panel_TarjetaMadre.setForeground(Color.DARK_GRAY);
+		panel_TarjetaMadre.setBackground(Color.DARK_GRAY);
+		panel_TarjetaMadre.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Informacion Adicional", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_TarjetaMadre.setBounds(10, 207, 753, 261);
+		contentPanel.add(panel_TarjetaMadre);
+		panel_TarjetaMadre.setLayout(null);
+		
+		lblConector_TarjetaMadre = new JLabel("Conexion:");
+		lblConector_TarjetaMadre.setForeground(Color.WHITE);
+		lblConector_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		lblConector_TarjetaMadre.setBounds(10, 49, 113, 14);
+		lblConector_TarjetaMadre.setVisible(true);
+		panel_TarjetaMadre.add(lblConector_TarjetaMadre);
+		
+		lblTipoRam_TarjetaMadre = new JLabel("TipoRam:");
+		lblTipoRam_TarjetaMadre.setForeground(Color.WHITE);
+		lblTipoRam_TarjetaMadre.setBackground(UIManager.getColor("Button.focus"));
+		lblTipoRam_TarjetaMadre.setBounds(10, 112, 113, 14);
+		panel_TarjetaMadre.add(lblTipoRam_TarjetaMadre);
+		
+		txtConexion_TarjetaMadre = new JTextField();
+		txtConexion_TarjetaMadre.setBackground(Color.WHITE);
+		txtConexion_TarjetaMadre.setForeground(Color.BLACK);
+		txtConexion_TarjetaMadre.setBounds(87, 46, 125, 20);
+		txtConexion_TarjetaMadre.setVisible(false);
+		panel_TarjetaMadre.add(txtConexion_TarjetaMadre);
+		txtConexion_TarjetaMadre.setColumns(10);
+		
+		txtTipoRam_TarjetaMadre = new JTextField();
+		txtTipoRam_TarjetaMadre.setForeground(Color.BLACK);
+		txtTipoRam_TarjetaMadre.setBackground(Color.WHITE);
+		txtTipoRam_TarjetaMadre.setColumns(10);
+		txtTipoRam_TarjetaMadre.setBounds(87, 109, 125, 20);
+		txtTipoRam_TarjetaMadre.setVisible(false);
+		panel_TarjetaMadre.add(txtTipoRam_TarjetaMadre);
+		
+		btnAgregar = new JButton("Add");
+		btnAgregar.setSelectedIcon(null);
+		btnAgregar.setBackground(UIManager.getColor("Button.focus"));
+		btnAgregar.setForeground(UIManager.getColor("Button.focus"));
+		btnAgregar.setEnabled(false);
+		btnAgregar.setVisible(false);
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cont++;
+				conexiones.remove(q);
+				agregados.add(q);
+				CargarTabla();
+				CargarTablaAgregados();
+				btnAgregar.setEnabled(false);
+				if(cont>0) {
+					okButton.setEnabled(true);
+				}else {
+					okButton.setEnabled(false);
+				}
+				
+			}
+		});
+		btnAgregar.setBounds(445, 66, 80, 25);
+		panel_TarjetaMadre.add(btnAgregar);
+		
+		btnQuitar = new JButton("Del");
+		btnQuitar.setForeground(UIManager.getColor("Button.focus"));
+		btnQuitar.setBackground(UIManager.getColor("Button.focus"));
+		btnQuitar.setEnabled(false);
+		btnQuitar.setVisible(false);
+		btnQuitar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cont--;
+				conexiones.add(q);
+				agregados.remove(q);
+				CargarTabla();
+				CargarTablaAgregados();
+				btnQuitar.setEnabled(false);
+				if(cont>0) {
+					okButton.setEnabled(true);
+				}else {
+					okButton.setEnabled(false);
+				}
+				
+			}
+		});
+		btnQuitar.setBounds(445, 175, 80, 25);
+		panel_TarjetaMadre.add(btnQuitar);
+		
+		panel_Disponibles = new JPanel();
+		panel_Disponibles.setForeground(Color.DARK_GRAY);
+		panel_Disponibles.setBackground(UIManager.getColor("Button.focus"));
+		panel_Disponibles.setBounds(227, 37, 192, 211);
+		panel_Disponibles.setVisible(false);
+		panel_TarjetaMadre.add(panel_Disponibles);
+		panel_Disponibles.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		panel_Disponibles.add(scrollPane_1, BorderLayout.CENTER);
+		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table_1.clearSelection();
+				int seleccion = table.getSelectedRow();
+				int modelrow = table.convertRowIndexToModel(seleccion);
+				if(seleccion!=-1){
+					btnAgregar.setEnabled(true);
+					btnQuitar.setEnabled(false);
+					q = conexiones.get(seleccion);
+				}else{
+					btnAgregar.setEnabled(false);
+					btnQuitar.setEnabled(false);
+					q = null;
+				}
+			}
+		});
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setModel(modelo);
+		scrollPane_1.setViewportView(table);
+		
+		panel_Agregados = new JPanel();
+		panel_Agregados.setForeground(Color.DARK_GRAY);
+		panel_Agregados.setBackground(UIManager.getColor("Button.focus"));
+		panel_Agregados.setBounds(549, 37, 192, 211);
+		panel_Agregados.setVisible(false);
+		panel_TarjetaMadre.add(panel_Agregados);
+		panel_Agregados.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_Agregados.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		table_1 = new JTable();
+		table_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table.clearSelection();
+				int seleccion = table_1.getSelectedRow();
+				int modelrow = table_1.convertRowIndexToModel(seleccion);
+				if(seleccion!=-1){
+					btnAgregar.setEnabled(false);
+					btnQuitar.setEnabled(true);
+					
+					q = agregados.get(modelrow);
+				}else{
+					btnAgregar.setEnabled(false);
+					btnQuitar.setEnabled(false);
+					q = null;
+				}
+			}
+		});
+		table_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table_1.setModel(modelo_1);
+		scrollPane.setViewportView(table_1);
+		
+		txtPrecioMadre = new JTextField();
+		txtPrecioMadre.setForeground(new Color(102, 0, 0));
+		txtPrecioMadre.setColumns(10);
+		txtPrecioMadre.setBackground(Color.WHITE);
+		txtPrecioMadre.setBounds(675, 11, 66, 20);
+		panel_TarjetaMadre.add(txtPrecioMadre);
+		
+		JLabel lblNewLabel = new JLabel("Precio:");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setBounds(619, 14, 46, 14);
+		panel_TarjetaMadre.add(lblNewLabel);
+		
 		
 		{
 			JPanel buttonPane = new JPanel();
@@ -795,13 +829,18 @@ public class AgregarComponente extends JDialog {
 						}
 						
 						if(rdbtnMemoriaRam.isSelected()) {
-							float cantidadMem = Float.parseFloat(spnCantidadDeMemoria_MemoriaRam.getValue().toString());
-							String tipo= cbxTipoDeMemoria_MemoriaRam.getSelectedItem().toString();
 							boolean Gb = true;
 							if(cbxMemoria_MemoriaRam.getSelectedItem().toString() == "Mb") {
 								Gb = false;
+						
 							}
-							// aux = new MemoriaRam(txtNumSerie.getText(), modelo, marca, cantMin, cantDisp, cantMin, cantidadMem, tipo, Gb);
+							int cantdispo= Integer.parseInt(spnCantDispo.getValue().toString());
+							String numserie= txtNumSerie.getText();
+							int cantmin= Integer.parseInt(spnCantMinima.getValue().toString());
+							float cantialmac= Float.parseFloat(spnCantidadDeMemoria_MemoriaRam.getValue().toString());
+							float precio1= Float.parseFloat(txtPrecioMemram.getText());
+							String tipocone= cbxTipoDeMemoria_MemoriaRam.getSelectedItem().toString();
+							aux = new MemoriaRam(precio1, cantdispo, numserie, cantmin, marca, modelo, cantialmac, tipocone);
 							Empresa.getInstance().addcomponente(aux);
 							JOptionPane.showMessageDialog(null, "El Componente ha sido registrado exitosamente. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
@@ -815,7 +854,15 @@ public class AgregarComponente extends JDialog {
 							if(cbxTipo_Microprocesadores.getSelectedItem().toString() == "MHz") {
 								GHz = false;
 							}
-								// aux = new MicroProcesador(txtNumSerie.getText(), modelo, marca, cantMin, conector, velocidad, GHz);
+							
+								 int cantdispo= Integer.parseInt(spnCantDispo.getValue().toString());
+									String numserie= txtNumSerie.getText();
+									int cantmin= Integer.parseInt(spnCantMinima.getValue().toString());
+									float precio1= Float.parseFloat(txtPrecioMicro.getText());
+
+								String tipoconector= txtTipoDeConexion_Microprocesadores.getText();
+								float veloprocesamiento= Float.parseFloat(spnVelocidad_Microprocesadores.getValue().toString());
+								aux = new MicroProcesador(precio1, cantdispo, numserie, cantmin, marca, modelo, tipoconector, veloprocesamiento);
 								Empresa.getInstance().addcomponente(aux);
 								JOptionPane.showMessageDialog(null, "El Componente ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
@@ -829,8 +876,16 @@ public class AgregarComponente extends JDialog {
 							if(!txtConexion_TarjetaMadre.getText().isEmpty() || !txtTipoRam_TarjetaMadre.getText().isEmpty() || modelo_1.getRowCount()>0){
 							String conector = txtConexion_TarjetaMadre.getText();
 							String tipoRam = txtTipoRam_TarjetaMadre.getText();
-							
-							// aux = new TarjetaMadre(txtNumSerie.getText(), modelo, marca, cantMin, conector, tipoRam, conexiones);
+							float precio1= Float.parseFloat(txtPrecioMadre.getText());
+
+							 int cantdispo= Integer.parseInt(spnCantDispo.getValue().toString());
+								String numserie= txtNumSerie.getText();
+								int cantmin= Integer.parseInt(spnCantMinima.getValue().toString());
+
+							String tipoconector= txtConexion_TarjetaMadre.getText();
+							String tipomemram= txtTipoRam_TarjetaMadre.getText();
+							ArrayList<String> misconexiones = null; 
+							aux = new TarjetaMadre(precio1, cantdispo, numserie, cantmin, marca, modelo, tipoconector, tipomemram, misconexiones);
 							Empresa.getInstance().addcomponente(aux);
 							JOptionPane.showMessageDialog(null, "El Componente se ha registrado exitosamente", "información", JOptionPane.INFORMATION_MESSAGE);	
 
@@ -876,7 +931,7 @@ public class AgregarComponente extends JDialog {
 	
 	private void LIMPIAR() {
 		
-		txtNumSerie.setText("S-"+Componente.getInstance().getNumserie());
+		txtNumSerie.setText("S-"+Empresa.getInstance().getMiscomponentes());
 		txtModelo.setText("");
 		txtMarca.setText("");
 		spnCantMinima.setValue(new Integer(1));
