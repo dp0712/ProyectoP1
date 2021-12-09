@@ -809,7 +809,6 @@ public class AgregarComponente extends JDialog {
 						String serie = txtNumSerie.getText();
 						String modelo= txtModelo.getText();
 						String marca = txtMarca.getText();
-						String precio= txtPrecio.getText();
 						int cantMin = Integer.parseInt(spnCantMinima.getValue().toString());
 						int cantDisp = Integer.parseInt(spnCantDispo.getValue().toString());
 						if( (cantMin<=cantDisp) ) {
@@ -822,7 +821,7 @@ public class AgregarComponente extends JDialog {
 							if(cbxUnidadDeAlmacenamiento_DiscoDuro.getSelectedItem().toString() == "Tb") {
 								Gb = false;
 							}
-							aux = new DiscoDuro(almacenamiento, cantDisp, cantDisp, txtNumSerie.getText(), marca, almacenamiento, modelo);
+							aux = new DiscoDuro(almacenamiento, cantDisp, cantDisp, serie, marca, almacenamiento, modelo);
 							Empresa.getInstance().addcomponente(aux);
 							JOptionPane.showMessageDialog(null, "El DiscoDuro ha sido registrado con exito. ", "información", JOptionPane.INFORMATION_MESSAGE);	
 
@@ -848,8 +847,6 @@ public class AgregarComponente extends JDialog {
 						if(rdbtnMicroprocesadores.isSelected()) {
 							if(!txtTipoDeConexion_Microprocesadores.getText().isEmpty()) {
 							
-							String conector = txtTipoDeConexion_Microprocesadores.getText();
-							float velocidad = Float.parseFloat(spnVelocidad_Microprocesadores.getValue().toString());
 							boolean GHz = true;
 							if(cbxTipo_Microprocesadores.getSelectedItem().toString() == "MHz") {
 								GHz = false;
@@ -874,8 +871,6 @@ public class AgregarComponente extends JDialog {
 						
 						if(rdbtnTarjetaMadre.isSelected() ) {
 							if(!txtConexion_TarjetaMadre.getText().isEmpty() || !txtTipoRam_TarjetaMadre.getText().isEmpty() || modelo_1.getRowCount()>0){
-							String conector = txtConexion_TarjetaMadre.getText();
-							String tipoRam = txtTipoRam_TarjetaMadre.getText();
 							float precio1= Float.parseFloat(txtPrecioMadre.getText());
 
 							 int cantdispo= Integer.parseInt(spnCantDispo.getValue().toString());
