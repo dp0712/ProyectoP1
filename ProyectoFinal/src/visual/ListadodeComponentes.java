@@ -120,7 +120,7 @@ public class ListadodeComponentes extends JDialog {
 			panel.add(scrollPane);
 			
 			modelo = new DefaultTableModel();
-			String columns[] = {"Código","Tipo","Cant. en almacen","Precio Unitario","modelo","Marca"};
+			String columns[] = {"Modelo","Tipo","Cant. en almacen","Precio Unitario","Num Serie","Marca"};
 			modelo.setColumnIdentifiers(columns);
 			table = new JTable();
 			table.addMouseListener(new MouseAdapter() {
@@ -134,8 +134,6 @@ public class ListadodeComponentes extends JDialog {
 							if('C'==((String)modelo.getValueAt(modelrow, 0)).charAt(0)) {
 								btnInformacion.setEnabled(true);
 								c = Empresa.getInstance().buscarelcombo((String)modelo.getValueAt(modelrow, 0));
-							}else {
-			
 							}
 						}
 					}else {
@@ -293,14 +291,14 @@ public class ListadodeComponentes extends JDialog {
 				
 				if(comp instanceof DiscoDuro) {
 				
-				fila[0] = comp.getNumserie();
+				fila[0] = ((DiscoDuro) comp).getModelo();
 				fila[1] = "Disco Duro";
 				fila[2] = comp.getCantdispo();
 				fila[3] = comp.getPrecio();
-				/*
-				fila[4] = comp.getModelo();
-				fila[5] = comp.getMarca();
-				*/
+				
+				fila[4] = comp.getNumserie();
+				fila[5] = ((DiscoDuro) comp).getMarca();
+				
 				modelo.addRow(fila);
 			}
 			}
@@ -308,14 +306,14 @@ public class ListadodeComponentes extends JDialog {
 			for (Componente comp : Empresa.getInstance().getMiscomponentes()) {
 				if(comp instanceof MemoriaRam) {
 					
-					fila[0] = comp.getNumserie();
+					fila[0] = ((MemoriaRam) comp).getModelo();
 					fila[1] = "Memoria Ram";	
 					fila[2] = comp.getCantdispo();
 					fila[3] = comp.getPrecio();
-					/*
-					fila[4] = comp.getModelo();
-					fila[5] = comp.getMarca();
-					*/
+					
+					fila[4] = comp.getNumserie();
+					fila[5] = ((MemoriaRam) comp).getMarca();
+					
 					modelo.addRow(fila);
 					
 				}
@@ -328,10 +326,10 @@ public class ListadodeComponentes extends JDialog {
 				fila[1] = "Microprocesador";							
 				fila[2] = comp.getCantdispo();
 				fila[3] = comp.getPrecio();
-			/*
-				fila[4] = comp.getModelo();
-				fila[5] = comp.getMarca();
-				*/
+			
+				fila[4] = comp.getNumserie();
+				fila[5] = ((MicroProcesador) comp).getMarca();
+				
 				modelo.addRow(fila);
 				}
 			}
@@ -345,10 +343,10 @@ public class ListadodeComponentes extends JDialog {
 					
 					fila[2] = comp.getCantdispo();
 					fila[3] = comp.getPrecio();
-					/*
-					fila[4] = comp.getModelo();
-					fila[5] = comp.getMarca();
-					*/
+					
+					fila[4] = comp.getNumserie();
+					fila[5] = ((TarjetaMadre) comp).getMarca();
+					
 					modelo.addRow(fila);
 				}
 			}
@@ -390,10 +388,10 @@ public class ListadodeComponentes extends JDialog {
 				
 				fila[2] = comp.getCantdispo();
 				fila[3] = comp.getPrecio();
-				/*
-				fila[4] = comp.getModelo();
-				fila[5] = comp.getMarca();
-				*/
+				
+				fila[4] = comp.getNumserie();
+				//fila[5] = comp.getMarca();
+				
 				modelo.addRow(fila);
 			}
 				for(Combos c : Empresa.getInstance().getMiscombos()) {
@@ -423,10 +421,10 @@ public class ListadodeComponentes extends JDialog {
 				
 				fila[2] = comp.getCantdispo();
 				fila[3] = comp.getPrecio();
-				/*
-				fila[4] = comp.getModelo();
-				fila[5] = comp.getMarca();
-				*/
+				
+				fila[4] = comp.getNumserie();
+				//fila[5] = comp.getMarca();
+				
 				modelo.addRow(fila);
 			}
 		}
